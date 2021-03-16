@@ -47,6 +47,11 @@ header {
     align-items: center;
 }
 
+#sideBarButtonDiv:hover {
+    cursor: pointer;
+}
+
+
 .bars {
     display: inline-block;
     padding: 0 20px;
