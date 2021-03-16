@@ -1,0 +1,83 @@
+html {
+    /*font-family: 'calibre-Bold', sans-serif;*/
+    font-family: 'Calibre-Bold',"ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro","メイリオ","Meiryo",Osaka,"ＭＳ Ｐゴシック", "MS PGothic",sans-serif;
+}
+
+body {
+    background-color: rgb(235, 245, 255);
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    top:0;
+    background-color: white;
+    position: fixed;
+}
+
+#title{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.mostHeaderishText {
+    font-weight: bold;
+    font-size: 1.5rem;
+    margin-bottom: 0;
+    letter-spacing: 0.3em;
+    text-shadow: 1px 1px black;
+}
+
+.leastHeaderishText {
+    font-weight: 1000;
+    font-size: 1.2rem;
+    margin-top: 0.5em;
+    letter-spacing: 0.1em;
+}
+
+#sideBarButtonDiv{
+    position:absolute;
+    left: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bars {
+    display: inline-block;
+    padding: 0 20px;
+    width: 58px;
+    height: 28px;
+    overflow: hidden;
+    position: relative;
+    vertical-align: middle;
+}
+
+.bar {
+    display: block;
+    position: absolute;
+    width: 22px;
+    height: 4px;
+    background-color: #1a1a1a;
+}
+
+#first {
+    top: 6px;
+}
+
+#second {
+    top: 12px;
+}
+
+#third {
+    top: 18px;
+}
+
+#navElement {
+    font-weight: bold;
+
+}
