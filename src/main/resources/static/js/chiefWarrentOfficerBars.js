@@ -1,6 +1,7 @@
 const bars = document.getElementById("bars");
 const sideBarButtonDiv = document.getElementById("sideBarButtonDiv");
 const sideBar = document.getElementById("sideBar");
+const body = document.querySelector("body");
 
 const headerForTesting = document.querySelector('header');
 
@@ -35,6 +36,8 @@ sideBarButtonDiv.addEventListener('mouseout', () => {
 sideBarButtonDiv.addEventListener('click', () => {
     moveSideBar();
     spinTheBars();
+    mainContainerFloatUp();
+    body.style.backgroundColor = "rgb(150, 150, 150)";
 })
 
 
@@ -70,19 +73,17 @@ function spinTheBars() {
     }
 }
 
-    function moveSideBar() {
-        if (currentSideBarPosition === "open") {
-            sideBar.style.transform = `translateX(-${sideBarWidth}px)`;
-            currentSideBarPosition = "closed";
-        } else if (currentSideBarPosition === "closed") {
-            sideBar.style.transform = `translateX(0px)`;
-            currentSideBarPosition = "open";
-        }
+function moveSideBar() {
+    if (currentSideBarPosition === "open") {
+        sideBar.style.transform = `translateX(-${sideBarWidth}px)`;
+        currentSideBarPosition = "closed";
+    } else if (currentSideBarPosition === "closed") {
+        sideBar.style.transform = `translateX(-16px)`;
+        currentSideBarPosition = "open";
     }
+}
 
-// headerForTesting.addEventListener('click', ()=> {
-//     if (currentSideBarPosition === "open"){
-//         sideBar.style.transform = `translateX(-${sideBarWidth}px)`;
-//         currentSideBarPosition = "closed";
-//     }
-// });
+function mainContainerFloatUp() {
+    mainStuffContainer.style.transform = `translateY(-20vh)`;
+}
+

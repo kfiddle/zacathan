@@ -44,7 +44,6 @@ for (let h = 0; h < menuStrings.length; h++) {
 }
 
 function underlineWords(menuItem, string) {
-    menuItem.style.zIndex = "5";
     for (let j = 0; j < string.length + 1; j++) {
         setTimeout(setLines, j * 20, j, menuItem, string);
     }

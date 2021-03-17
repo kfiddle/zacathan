@@ -9,6 +9,7 @@ span {
 
 body {
     background-color: rgb(235, 245, 255);
+    transition: 3s;
 }
 
 header {
@@ -19,7 +20,7 @@ header {
     top:0;
     background-color: white;
     position: fixed;
-    /*border-bottom: .0125rem solid;*/
+    z-index: 1;
     box-shadow: 1px 1px lightgray;
 }
 
@@ -45,8 +46,15 @@ header {
     letter-spacing: 0.1em;
 }
 
+main {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    overflow: hidden;
+}
+
 .sideMenu {
     margin-top: 0;
+    margin-left: 1rem;
 }
 
 .menuItemDiv {
@@ -59,7 +67,7 @@ header {
 
 #sideBar {
     background-color: white;
-    width: 25vw;
+    width: 23vw;
     height: 100vh;
     transform: translateX(-25vw);
     transition: .75s;
@@ -76,7 +84,6 @@ header {
 #sideBarButtonDiv:hover {
     cursor: pointer;
 }
-
 
 .bars {
     display: inline-block;
@@ -98,6 +105,12 @@ header {
 
 #navElement {
     font-weight: bold;
+}
+
+#theRealContent {
+    background-color: white;
+    transform: translateY(100vh);
+    transition: 2s;
 }
 
 
