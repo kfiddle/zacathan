@@ -3,6 +3,10 @@ html {
     font-family: 'Calibre-Bold',"ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro","メイリオ","Meiryo",Osaka,"ＭＳ Ｐゴシック", "MS PGothic",sans-serif;
 }
 
+span {
+    color: dodgerblue;
+}
+
 body {
     background-color: rgb(235, 245, 255);
 }
@@ -15,6 +19,8 @@ header {
     top:0;
     background-color: white;
     position: fixed;
+    /*border-bottom: .0125rem solid;*/
+    box-shadow: 1px 1px lightgray;
 }
 
 #title{
@@ -22,6 +28,8 @@ header {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    text-decoration: underline;
+
 }
 
 .mostHeaderishText {
@@ -37,6 +45,26 @@ header {
     font-size: 1.2rem;
     margin-top: 0.5em;
     letter-spacing: 0.1em;
+}
+
+.sideMenu {
+    margin-top: 0;
+}
+
+.menuItemDiv {
+    height: 4rem;
+}
+
+.sideMenu:hover {
+    cursor: pointer;
+}
+
+#sideBar {
+    background-color: white;
+    width: 25vw;
+    height: 100vh;
+    transform: translateX(-25vw);
+    transition: .75s;
 }
 
 #sideBarButtonDiv{
@@ -70,19 +98,9 @@ header {
     background-color: #1a1a1a;
 }
 
-#first {
-    top: 6px;
-}
-
-#second {
-    top: 12px;
-}
-
-#third {
-    top: 18px;
-}
-
 #navElement {
     font-weight: bold;
-
 }
+
+
+
