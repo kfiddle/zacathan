@@ -1,9 +1,9 @@
-const extraString = "another choice";
+
 
 const menuStrings = ["about", "coming up next", "2015 - 2016 presentations", "meeting length presentations",
     "course length presentations", "seminar length presentations", "contact"];
 
-const sideBarMenuItems = Array.from(document.querySelectorAll(".sideMenu"));
+const sideBarMenuItems = [];
 
 for (let h = 0; h < menuStrings.length; h++) {
     let menuDiv = document.createElement('div');
@@ -14,10 +14,10 @@ for (let h = 0; h < menuStrings.length; h++) {
     menuItem.innerText = menuStrings[h];
     menuDiv.appendChild(menuItem);
     sideBar.appendChild(menuDiv);
+    sideBarMenuItems.push(menuDiv);
 
     menuDiv.addEventListener('mouseover', () => {
-        // colorWords(menuItem, menuStrings[h], "violet");
-        underlineWords(menuItem, menuStrings[h])
+        colorWords(menuItem, menuStrings[h], "cyan");
     });
 
     menuDiv.addEventListener('mouseout', () => {
@@ -37,10 +37,6 @@ function colorWords(menuItem, string, color) {
 function setLetters(i, menuItem, theString, color) {
     menuItem.innerText = theString.substr(0, i);
     menuItem.style.color = color;
-};
-
-for (let h = 0; h < menuStrings.length; h++) {
-
 }
 
 function underlineWords(menuItem, string) {
@@ -54,3 +50,11 @@ function setLines(j, menuItem, theString) {
     menuItem.innerText = theString.substr(0, j);
     menuItem.style.textDecoration = "underline";
 }
+
+
+
+
+
+
+
+
