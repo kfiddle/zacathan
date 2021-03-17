@@ -2,10 +2,13 @@ const bars = document.getElementById("bars");
 const sideBarButtonDiv = document.getElementById("sideBarButtonDiv");
 const sideBar = document.getElementById("sideBar");
 
+const headerForTesting = document.querySelector('header');
+
 let sideBarWidth = sideBar.offsetWidth;
 let barsArray = [];
 
 let currentSideBarPosition = "closed";
+let barsSpun = false;
 
 for (let j = 0; j < 3; j++) {
 
@@ -29,7 +32,11 @@ sideBarButtonDiv.addEventListener('mouseout', () => {
     scrollingBars("back");
 });
 
-sideBarButtonDiv.addEventListener('click', moveSideBar);
+sideBarButtonDiv.addEventListener('click', () => {
+    moveSideBar();
+    spinTheBars();
+})
+
 
 function resetBar(j, spinType) {
     if (spinType === "up") {
@@ -49,12 +56,33 @@ function scrollingBars(spinType) {
     }
 }
 
-function moveSideBar() {
-    if (currentSideBarPosition === "open") {
-        sideBar.style.transform = `translateX(-${sideBarWidth}px)`;
-        currentSideBarPosition = "closed";
-    } else if (currentSideBarPosition === "closed") {
-        sideBar.style.transform = `translateX(0px)`;
-        currentSideBarPosition = "open";
+function spinTheBars() {
+    if (barsSpun === false) {
+        barsArray.forEach(bar => {
+            bar.style.transform = "rotate(0.5turn)";
+            barsSpun = true;
+        })
+    } else {
+        barsArray.forEach(bar => {
+            bar.style.transform = "rotate(0turn)";
+            barsSpun = false;
+        })
     }
 }
+
+    function moveSideBar() {
+        if (currentSideBarPosition === "open") {
+            sideBar.style.transform = `translateX(-${sideBarWidth}px)`;
+            currentSideBarPosition = "closed";
+        } else if (currentSideBarPosition === "closed") {
+            sideBar.style.transform = `translateX(0px)`;
+            currentSideBarPosition = "open";
+        }
+    }
+
+// headerForTesting.addEventListener('click', ()=> {
+//     if (currentSideBarPosition === "open"){
+//         sideBar.style.transform = `translateX(-${sideBarWidth}px)`;
+//         currentSideBarPosition = "closed";
+//     }
+// });
