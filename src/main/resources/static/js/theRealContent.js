@@ -1,5 +1,7 @@
 const mainStuff = document.getElementById("theRealContent");
 
+const mainWidth = mainStuff.offsetWidth;
+
 const shows = ["Genealogy and the Law",
     "Assumption is the Mother of all Screw-ups!",
     "Breaking Down Brick Walls: An Introduction to the F.A.N. Club",
@@ -27,9 +29,11 @@ const shows = ["Genealogy and the Law",
 for (let j = 0; j <= 15; j = j + 3) {
     let horizontalDiv = document.createElement('div');
     horizontalDiv.classList.add('horizontalDiv');
+    horizontalDiv.id = 'horizontalDiv' + j;
     for (let k = 0; k < 3; k++) {
         let smallCubicle = document.createElement('div');
         smallCubicle.innerHTML = shows[j + k];
+        smallCubicle.style.width = (mainWidth / 3) + "px";
         smallCubicle.classList.add("smallCubicle");
         horizontalDiv.appendChild(smallCubicle);
     }
