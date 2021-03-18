@@ -1,6 +1,5 @@
 const mainStuff = document.getElementById("theRealContent");
 
-
 const mainWidth = mainStuff.offsetWidth;
 
 const shows = ["Genealogy and the Law",

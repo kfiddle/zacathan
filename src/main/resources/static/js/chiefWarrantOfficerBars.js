@@ -82,10 +82,6 @@ function moveSideBar() {
     }
 }
 
-// function mainContainerEnter() {
-//     mainStuffContainer.style.transform = `translateX(-1vw)`;
-// }
-
 function contentDivsSlideIn() {
     let slideRules = Array.from(document.querySelectorAll('.horizontalDiv'));
 
@@ -95,3 +91,9 @@ function contentDivsSlideIn() {
 
 }
 
+
+   // *** in case we need the original below
+
+// function mainContainerEnter() {
+//     mainStuffContainer.style.transform = `translateX(-1vw)`;
+// }

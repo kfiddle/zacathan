@@ -110,8 +110,6 @@ main {
 #theRealContent {
     display: grid;
     grid-template-columns: 1fr;
-    /*background-color: white;*/
-    /*transform: translateX(100vw);*/
     transition: 2s;
 }
 
@@ -121,7 +119,6 @@ main {
     margin: 0;
     padding: 0;
     transform: translateX(100vw);
-    /*transition: 2s;*/
 }
 
 .smallCubicle {
@@ -135,6 +132,4 @@ main {
     background-color: dodgerblue;
     opacity: 0.3;
 }
-
-
 
