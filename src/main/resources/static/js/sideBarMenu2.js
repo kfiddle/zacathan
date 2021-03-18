@@ -8,7 +8,7 @@ for (let h = 0; h < menuStrings.length; h++) {
     let menuItem = document.createElement('h3');
     menuItem.classList.add("leastHeaderishText");
     menuItem.classList.add("sideMenu");
-    menuItem.style.marginTop = "1rem";
+    menuItem.style.paddingTop = "2.3rem";
     menuItem.innerText = menuStrings[h];
     sideBar.appendChild(menuItem);
     sideBarMenuItems.push(menuItem);
@@ -16,6 +16,7 @@ for (let h = 0; h < menuStrings.length; h++) {
     console.log(menuItem.innerHTML.length);
 
     let index = 1;
+
     menuItem.addEventListener('mouseover', () => {
         changeColor(menuItem, index);
     });
@@ -27,7 +28,7 @@ for (let h = 0; h < menuStrings.length; h++) {
 
 function changeColor(menuItem, index) {
     if (index < menuItem.innerHTML.length + 1) {
-        setTimeout(oneLetterAtATime, index * 30, menuItem, index);
+        setTimeout(oneLetterAtATime, index * 25, menuItem, index);
         index++;
         console.log(index);
         changeColor(menuItem, index);
@@ -41,5 +42,7 @@ function oneLetterAtATime(menuItem, index) {
     menuItem.style.color = "rgb(0,20,230)";
 }
 
-
+for (let ginger = 1; ginger < 4; ginger++) {
+    console.log(ginger + "    maria");
+}
 

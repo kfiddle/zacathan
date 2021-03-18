@@ -108,9 +108,24 @@ main {
 }
 
 #theRealContent {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     background-color: white;
-    transform: translateY(100vh);
+    transform: translateX(100vw);
     transition: 2s;
+}
+
+.smallCubicle {
+    height: 4rem;
+}
+
+.horizontalDiv {
+    display: flex;
+    flex-direction: row;
+}
+
+.smallCubicle:hover {
+    background-color: darkgreen;
 }
 
 

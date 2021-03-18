@@ -26,7 +26,11 @@ for (let h = 0; h < menuStrings.length; h++) {
     });
 
 }
-
+function underlineWords(menuItem, string) {
+    for (let j = 0; j < string.length + 1; j++) {
+        setTimeout(setLines, j * 20, j, menuItem, string);
+    }
+}
 
 function colorWords(menuItem, string, color) {
     for (let j = 0; j < string.length + 1; j++) {
@@ -39,18 +43,15 @@ function setLetters(i, menuItem, theString, color) {
     menuItem.style.color = color;
 }
 
-function underlineWords(menuItem, string) {
-    for (let j = 0; j < string.length + 1; j++) {
-        setTimeout(setLines, j * 20, j, menuItem, string);
-    }
-}
 
 
 function setLines(j, menuItem, theString) {
     menuItem.innerText = theString.substr(0, j);
     menuItem.style.textDecoration = "underline";
-}
 
+
+
+}
 
 
 

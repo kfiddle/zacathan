@@ -36,7 +36,7 @@ sideBarButtonDiv.addEventListener('mouseout', () => {
 sideBarButtonDiv.addEventListener('click', () => {
     moveSideBar();
     spinTheBars();
-    mainContainerFloatUp();
+    mainContainerEnter();
     body.style.backgroundColor = "rgb(150, 150, 150)";
 })
 
@@ -83,7 +83,7 @@ function moveSideBar() {
     }
 }
 
-function mainContainerFloatUp() {
-    mainStuffContainer.style.transform = `translateY(-20vh)`;
+function mainContainerEnter() {
+    mainStuffContainer.style.transform = `translateX(-1vw)`;
 }
 
