@@ -1,6 +1,6 @@
 html {
     /*font-family: 'calibre-Bold', sans-serif;*/
-    font-family: 'Calibre-Bold',"ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro","メイリオ","Meiryo",Osaka,"ＭＳ Ｐゴシック", "MS PGothic",sans-serif;
+    font-family: 'Calibre-Bold', "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", "Meiryo", Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
 }
 
 span {
@@ -17,14 +17,14 @@ header {
     justify-content: center;
     align-items: center;
     width: 100%;
-    top:0;
+    top: 0;
     background-color: white;
     position: fixed;
     z-index: 1;
     box-shadow: 1px 1px lightgray;
 }
 
-#title{
+#title {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -73,8 +73,8 @@ main {
     transition: .75s;
 }
 
-#sideBarButtonDiv{
-    position:absolute;
+#sideBarButtonDiv {
+    position: absolute;
     left: 2rem;
     display: flex;
     justify-content: center;
@@ -109,24 +109,31 @@ main {
 
 #theRealContent {
     display: grid;
-    /*grid-template-columns: 1fr 1fr 1fr 1fr;*/
     grid-template-columns: 1fr;
-    background-color: white;
-    transform: translateX(100vw);
+    /*background-color: white;*/
+    /*transform: translateX(100vw);*/
     transition: 2s;
-}
-
-.smallCubicle {
-    height: 4rem;
 }
 
 .horizontalDiv {
     display: flex;
     flex-direction: row;
+    margin: 0;
+    padding: 0;
+    transform: translateX(100vw);
+    /*transition: 2s;*/
+}
+
+.smallCubicle {
+    height: 8rem;
+    background-color: white;
+    margin: 0;
+    padding: 0;
 }
 
 .smallCubicle:hover {
-    background-color: darkgreen;
+    background-color: dodgerblue;
+    opacity: 0.3;
 }
 
 

@@ -4,7 +4,7 @@ let headerHeight = document.querySelector("header").offsetHeight;
 
 main.style.marginTop = headerHeight + "px";
 
-mainStuffContainer.style.marginTop = (headerHeight * 2) + "px";
+mainStuffContainer.style.marginTop = (headerHeight) + "px";
 
 
 console.log(headerHeight);

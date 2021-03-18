@@ -42,7 +42,4 @@ function oneLetterAtATime(menuItem, index) {
     menuItem.style.color = "rgb(0,20,230)";
 }
 
-for (let ginger = 1; ginger < 4; ginger++) {
-    console.log(ginger + "    maria");
-}
 

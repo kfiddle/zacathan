@@ -3,7 +3,6 @@ const sideBarButtonDiv = document.getElementById("sideBarButtonDiv");
 const sideBar = document.getElementById("sideBar");
 const body = document.querySelector("body");
 
-const headerForTesting = document.querySelector('header');
 
 let sideBarWidth = sideBar.offsetWidth;
 let barsArray = [];
@@ -36,7 +35,7 @@ sideBarButtonDiv.addEventListener('mouseout', () => {
 sideBarButtonDiv.addEventListener('click', () => {
     moveSideBar();
     spinTheBars();
-    mainContainerEnter();
+    contentDivsSlideIn();
     body.style.backgroundColor = "rgb(150, 150, 150)";
 })
 
@@ -83,7 +82,16 @@ function moveSideBar() {
     }
 }
 
-function mainContainerEnter() {
-    mainStuffContainer.style.transform = `translateX(-1vw)`;
+// function mainContainerEnter() {
+//     mainStuffContainer.style.transform = `translateX(-1vw)`;
+// }
+
+function contentDivsSlideIn() {
+    let slideRules = Array.from(document.querySelectorAll('.horizontalDiv'));
+
+    slideRules.forEach(slide => {
+        slide.style.transform = `translateX(-1vw)`;
+    })
+
 }
 

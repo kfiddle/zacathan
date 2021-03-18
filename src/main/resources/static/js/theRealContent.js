@@ -1,5 +1,6 @@
 const mainStuff = document.getElementById("theRealContent");
 
+
 const mainWidth = mainStuff.offsetWidth;
 
 const shows = ["Genealogy and the Law",
@@ -26,10 +27,12 @@ const shows = ["Genealogy and the Law",
     "Advancing Your Skills: Research Methodology & the Genealogical Proof Standard"
 ];
 
+
 for (let j = 0; j <= 15; j = j + 3) {
     let horizontalDiv = document.createElement('div');
     horizontalDiv.classList.add('horizontalDiv');
     horizontalDiv.id = 'horizontalDiv' + j;
+    horizontalDiv.style.transition = (j / 6) + 0.5 +  "s";
     for (let k = 0; k < 3; k++) {
         let smallCubicle = document.createElement('div');
         smallCubicle.innerHTML = shows[j + k];
@@ -40,3 +43,19 @@ for (let j = 0; j <= 15; j = j + 3) {
     mainStuff.appendChild(horizontalDiv);
 }
 
+
+//     ****version to try another way
+
+// for (let j = 0; j <= 15; j = j + 3) {
+//     let horizontalDiv = document.createElement('div');
+//     horizontalDiv.classList.add('horizontalDiv');
+//     horizontalDiv.id = 'horizontalDiv' + j;
+//     for (let k = 0; k < 3; k++) {
+//         let smallCubicle = document.createElement('div');
+//         smallCubicle.innerHTML = shows[j + k];
+//         smallCubicle.style.width = (mainWidth / 3) + "px";
+//         smallCubicle.classList.add("smallCubicle");
+//         horizontalDiv.appendChild(smallCubicle);
+//     }
+//     main.appendChild(horizontalDiv);
+// }
