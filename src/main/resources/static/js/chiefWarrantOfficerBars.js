@@ -36,7 +36,7 @@ sideBarButtonDiv.addEventListener('click', () => {
     moveSideBar();
     spinTheBars();
     contentDivsSlideIn();
-    body.style.backgroundColor = "rgb(150, 150, 150)";
+    body.style.backgroundColor = "rgb(128, 128, 129)";
 })
 
 

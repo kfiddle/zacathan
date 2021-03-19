@@ -37,24 +37,11 @@ for (let j = 0; j <= 15; j = j + 3) {
         smallCubicle.innerHTML = shows[j + k];
         smallCubicle.style.width = (mainWidth / 3) + "px";
         smallCubicle.classList.add("smallCubicle");
+        smallCubicle.id = "smallCubicle" + (j + k);
         horizontalDiv.appendChild(smallCubicle);
     }
     mainStuff.appendChild(horizontalDiv);
 }
 
 
-//     ****version to try another way
 
-// for (let j = 0; j <= 15; j = j + 3) {
-//     let horizontalDiv = document.createElement('div');
-//     horizontalDiv.classList.add('horizontalDiv');
-//     horizontalDiv.id = 'horizontalDiv' + j;
-//     for (let k = 0; k < 3; k++) {
-//         let smallCubicle = document.createElement('div');
-//         smallCubicle.innerHTML = shows[j + k];
-//         smallCubicle.style.width = (mainWidth / 3) + "px";
-//         smallCubicle.classList.add("smallCubicle");
-//         horizontalDiv.appendChild(smallCubicle);
-//     }
-//     main.appendChild(horizontalDiv);
-// }

@@ -9,7 +9,7 @@ span {
 
 body {
     background-color: rgb(235, 245, 255);
-    transition: 3s;
+    transition: 5s;
 }
 
 header {
@@ -110,6 +110,7 @@ main {
 #theRealContent {
     display: grid;
     grid-template-columns: 1fr;
+    margin-top: 3rem;
     transition: 2s;
 }
 
@@ -121,15 +122,5 @@ main {
     transform: translateX(100vw);
 }
 
-.smallCubicle {
-    height: 8rem;
-    background-color: white;
-    margin: 0;
-    padding: 0;
-}
 
-.smallCubicle:hover {
-    background-color: dodgerblue;
-    opacity: 0.3;
-}
 

@@ -1,0 +1,75 @@
+.smallCubicle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 8rem;
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+.smallCubicle:hover {
+    background-color: rebeccapurple;
+    opacity: 0.3;
+}
+
+#smallCubicle0 {
+    background-color: rgb(252, 250, 251);
+}
+
+#smallCubicle1 {
+    background-color: rgb(253, 248, 240);
+}
+
+#smallCubicle2 {
+    background-color: rgb(250, 252, 242);
+}
+
+#smallCubicle3 {
+    background-color: rgb(248, 253, 253);
+}
+#smallCubicle4 {
+    background-color: rgb(225, 250, 249);
+}
+#smallCubicle5 {
+    background-color: rgb(252, 245, 252);
+}
+#smallCubicle6 {
+    background-color: rgb(243, 252, 251);
+}
+#smallCubicle7 {
+    background-color: rgb(248, 249, 252);
+}
+#smallCubicle8 {
+    background-color: rgb(238, 242, 239);
+}
+#smallCubicle9 {
+    background-color: rgb(250, 252, 243);
+}
+#smallCubicle10 {
+    background-color: rgb(252, 252, 243);
+}
+#smallCubicle11 {
+    background-color: rgb(252, 247, 243);
+}
+#smallCubicle12 {
+    background-color: rgb(252, 246, 249);
+}
+#smallCubicle13 {
+    background-color: rgb(252, 243, 243);
+}
+#smallCubicle14 {
+    background-color: rgb(249, 239, 239);
+}
+#smallCubicle15 {
+    background-color: rgb(236, 237, 252);
+}
+#smallCubicle16 {
+    background-color: rgb(232, 240, 240);
+}
+#smallCubicle17 {
+    background-color: rgb(252, 252, 242);
+}
+#smallCubicle18 {
+    background-color: rgb(244, 250, 227);
+}
