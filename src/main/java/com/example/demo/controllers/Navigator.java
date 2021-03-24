@@ -8,8 +8,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class Navigator {
 
 
-    @RequestMapping("/")
+    @RequestMapping("/welcome")
     public String displayWelcomePage() {
         return "home";
     }
+
 }

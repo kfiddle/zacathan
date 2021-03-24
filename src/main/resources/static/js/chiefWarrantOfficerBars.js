@@ -1,6 +1,6 @@
 const bars = document.getElementById("bars");
 const sideBarButtonDiv = document.getElementById("sideBarButtonDiv");
-const sideBar = document.getElementById("sideBar");
+// const sideBar = document.getElementById("sideBar");
 const body = document.querySelector("body");
 
 

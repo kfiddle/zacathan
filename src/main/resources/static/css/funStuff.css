@@ -1,0 +1,42 @@
+
+li {
+    list-style: none;
+}
+
+button {
+    margin: 8px;
+    background-color: dodgerblue;
+}
+
+button:hover {
+    opacity: 0.5;
+}
+
+#menuItemsList li {
+    font-weight: bold;
+    font-size: 1.3rem;
+    margin: 8px;
+    padding: 5px;
+}
+
+#listToRevise li {
+    font-size: 1.1rem;
+}
+
+li:hover {
+    color: dodgerblue;
+    cursor: pointer;
+}
+
+#mainContainer {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+}
+
+#editingBox {
+    height: 8rem;
+    background-color: sandybrown;
+    border-radius: 8px;
+    transform: translateX(100vw);
+    transition: 1s;
+}
