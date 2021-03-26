@@ -4,6 +4,7 @@ const sideBarMenuItems = [];
 const mainStuff = document.getElementById("theRealContent");
 const mainWidth = mainStuff.offsetWidth;
 
+
 fetch("/api/lecture-series-list")
     .then(response => response.json())
     .then(jsonData =>
@@ -11,26 +12,31 @@ fetch("/api/lecture-series-list")
             let menuItem = document.createElement('h3');
             menuItem.classList.add("leastHeaderishText");
             menuItem.classList.add("sideMenu");
-            menuItem.style.paddingTop = "2.3rem";
+            menuItem.style.marginTop = "2.7rem";
             menuItem.innerText = series.title;
             sideBarMenuItems.push(series.title);
 
             let index = 1;
 
             menuItem.addEventListener('mouseover', () => {
+                for (let title of sideBar.childNodes) {
+                    title.style.color = "black";
+                }
                 changeColor(menuItem, index);
-            });
+            }
+                );
 
             menuItem.addEventListener('mouseout', () => {
                 menuItem.style.color = "black";
-
                 for (let title of sideBar.childNodes) {
                     title.style.color = "black";
                 }
             });
 
-            menuItem.addEventListener('click', ()=> {
+            menuItem.addEventListener('click', () => {
                 let lecturesToDisplay = [];
+                body.style.backgroundColor = "rgb(128, 128, 129)";
+
 
                 fetch("/api/" + series.title + "/lectures")
                     .then(response => response.json())
@@ -38,13 +44,13 @@ fetch("/api/lecture-series-list")
                         jsonData.forEach(lecture => {
                             lecturesToDisplay.push(lecture.title);
                         }
-                        ))
+                            ))
                     .then(() => displaySpecificLectures(lecturesToDisplay))
                     .catch(err => console.log(err));
             })
             sideBar.appendChild(menuItem);
         })
-    )
+        )
     .catch(err => console.log(err))
 
 
@@ -54,11 +60,12 @@ function displaySpecificLectures(lectures) {
         mainStuff.removeChild(mainStuff.lastChild);
     }
 
-    for (let j = 0; j <= lectures.length; j = j + 3) {
+
+    for (let j = 0; j <= lectures.length - 3; j = j + 3) {
         let horizontalDiv = document.createElement('div');
         horizontalDiv.classList.add('horizontalDiv');
         horizontalDiv.id = 'horizontalDiv' + j;
-        horizontalDiv.style.transition = (j / 6) + 0.5 +  "s";
+        horizontalDiv.style.transition = (j / 6) + 0.5 + "s";
         for (let k = 0; k < 3; k++) {
             let smallCubicle = document.createElement('div');
             smallCubicle.innerHTML = lectures[j + k];
@@ -68,7 +75,8 @@ function displaySpecificLectures(lectures) {
             horizontalDiv.appendChild(smallCubicle);
         }
         mainStuff.appendChild(horizontalDiv);
-    } setTimeout(slideIn, 10 );
+    }
+    setTimeout(slideIn, 10);
 }
 
 function slideIn() {
@@ -80,35 +88,10 @@ function slideIn() {
 
 }
 
-
-
-// for (let series of ourTitles) {
-//     let menuItem = document.createElement('h3');
-//     menuItem.classList.add("leastHeaderishText");
-//     menuItem.classList.add("sideMenu");
-//     menuItem.style.paddingTop = "2.3rem";
-//     menuItem.innerText = series;
-//     sideBarMenuItems.push(series);
-
-    // let index = 1;
-    //
-    // menuItem.addEventListener('mouseover', () => {
-    //     changeColor(menuItem, index);
-    // });
-    //
-    // menuItem.addEventListener('mouseout', () => {
-    //     menuItem.style.color = "black";
-    // });
-
-//     sideBar.appendChild(menuItem);
-//
-// }
-
-
 function changeColor(menuItem, index) {
     if (index < menuItem.innerHTML.length + 1) {
         let originalString = menuItem.innerText;
-        setTimeout(oneLetterAtATime, index * 25, menuItem, originalString, index);
+        setTimeout(oneLetterAtATime, index * 10, menuItem, originalString, index);
         index++;
         changeColor(menuItem, index);
     }
@@ -116,9 +99,54 @@ function changeColor(menuItem, index) {
 
 function oneLetterAtATime(menuItem, originalString, index) {
     menuItem.innerText = originalString.substr(0, index);
-    menuItem.style.color = "rgb(0,20,230)";
+    menuItem.style.color = "rgb(0, 20, 230)";
 }
 
+
+// let currentElem = null;
+//
+// sideBar.onmouseover = function (event) {
+//
+//     if (currentElem) return;
+//
+//     let target = event.target.closest('h3');
+//     if (!target) return;
+//
+//     if (!sideBar.contains(target)) return;
+//
+//     currentElem = target;
+//     onEnter(currentElem);
+// };
+
+// sideBar.onmouseout = function (event) {
+//
+//     if (!currentElem) return;
+//
+//     let relatedTarget = event.relatedTarget;
+//
+//     while (relatedTarget) {
+//
+//         if (relatedTarget == currentElem) return;
+//         relatedTarget = relatedTarget.parentNode;
+//     }
+//     onLeave(currentElem);
+//     currentElem = null;
+// };
+
+
+// function onEnter(elem) {
+//     // elem.style.background = 'pink';
+//
+//     let index = 1;
+//     changeColor(elem, index);
+//
+// }
+//
+//
+// function onLeave(elem) {
+//     elem.style.color = "black";
+//
+// }
 
 
 

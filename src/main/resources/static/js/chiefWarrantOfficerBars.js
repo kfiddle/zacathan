@@ -35,7 +35,6 @@ sideBarButtonDiv.addEventListener('mouseout', () => {
 sideBarButtonDiv.addEventListener('click', () => {
     moveSideBar();
     spinTheBars();
-    body.style.backgroundColor = "rgb(128, 128, 129)";
 })
 
 
@@ -74,8 +73,15 @@ function spinTheBars() {
 function moveSideBar() {
     if (currentSideBarPosition === "open") {
         sideBar.style.transform = `translateX(-${sideBarWidth}px)`;
+
+        while (mainStuff.lastChild) {
+            mainStuff.removeChild(mainStuff.lastChild);
+        }
+
+        // body.style.backgroundColor =  "rgb(235, 245, 255)";
         currentSideBarPosition = "closed";
     } else if (currentSideBarPosition === "closed") {
+        // body.style.backgroundColor = "rgb(128, 128, 129)";
         sideBar.style.transform = `translateX(-16px)`;
         currentSideBarPosition = "open";
     }
