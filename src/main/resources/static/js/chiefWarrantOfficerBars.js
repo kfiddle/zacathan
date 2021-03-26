@@ -1,6 +1,6 @@
 const bars = document.getElementById("bars");
 const sideBarButtonDiv = document.getElementById("sideBarButtonDiv");
-// const sideBar = document.getElementById("sideBar");
+const sideBar = document.getElementById("sideBar");
 const body = document.querySelector("body");
 
 
@@ -35,7 +35,6 @@ sideBarButtonDiv.addEventListener('mouseout', () => {
 sideBarButtonDiv.addEventListener('click', () => {
     moveSideBar();
     spinTheBars();
-    contentDivsSlideIn();
     body.style.backgroundColor = "rgb(128, 128, 129)";
 })
 

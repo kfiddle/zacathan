@@ -29,6 +29,18 @@ public class BackToJS {
         return (Collection<LectureSeries>) lectureSeriesRepo.findAll();
     }
 
+    @RequestMapping("/api/series-titles-only")
+    public Collection<String> lectureSeriesTitlesInDB() {
+        Collection<String> titles = new ArrayList<>();
+        for (LectureSeries series : lectureSeriesRepo.findAll()) {
+            titles.add(series.getTitle());
+        }
+        return titles;
+    }
+
+
+
+
     @RequestMapping("/api/lectures")
     public Collection<Lecture> lecturesInDB() {
         return (Collection<Lecture>) lectureRepo.findAll();

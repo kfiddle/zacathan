@@ -26,9 +26,16 @@ public class Populator implements CommandLineRunner {
 
         LectureSeries shows1516 = new LectureSeries("2015-2016 Presentations");
         LectureSeries meetingLength = new LectureSeries("Meeting-Length Presentations");
+        LectureSeries courseLength = new LectureSeries("Course-Length Presentations");
+        LectureSeries seminarLength = new LectureSeries("Seminar-Length Presentations");
+        LectureSeries comingUpNext = new LectureSeries("Coming Up Next");
+
 
         lectureSeriesRepo.save(shows1516);
         lectureSeriesRepo.save(meetingLength);
+        lectureSeriesRepo.save(courseLength);
+        lectureSeriesRepo.save(seminarLength);
+        lectureSeriesRepo.save(comingUpNext);
 
         Lecture a = new Lecture("Genealogy and the Law", shows1516);
         Lecture b = new Lecture("Assumption is the Mother of all Screw-ups!", shows1516);
@@ -64,6 +71,23 @@ public class Populator implements CommandLineRunner {
         Lecture m1 = new Lecture("Spreadsheets: Your Computer's Secret Genealogy Problem Solver", meetingLength);
         Lecture n1 = new Lecture("Writing Your Family History One Byte at a Time", meetingLength);
 
+        Lecture a2 = new Lecture("American Military Records", courseLength);
+        Lecture b2 = new Lecture("Context and Evidence Analysis", courseLength);
+        Lecture c2 = new Lecture("Genealogy and the Law", courseLength);
+        Lecture d2 = new Lecture("Immigration and Naturalization Records", courseLength);
+        Lecture e2 = new Lecture("Seeking City Slickers: Maps, Directories, Tax Lists, and Other Fun Records", courseLength);
+        Lecture f2 = new Lecture("Finding Country Cousins: Research in Land and Property Records", courseLength);
+
+        Lecture a3 = new Lecture("The Best Things in Life Are Free: Finding and Using Free Online Genealogy Resources", seminarLength);
+        Lecture b3 = new Lecture("American Military Research", seminarLength);
+
+
+
+
+
+
+
+
 
         lectureRepo.save(a);
         lectureRepo.save(b);
@@ -98,6 +122,16 @@ public class Populator implements CommandLineRunner {
         lectureRepo.save(l1);
         lectureRepo.save(m1);
         lectureRepo.save(n1);
+
+        lectureRepo.save(a2);
+        lectureRepo.save(b2);
+        lectureRepo.save(c2);
+        lectureRepo.save(d2);
+        lectureRepo.save(e2);
+        lectureRepo.save(f2);
+
+        lectureRepo.save(a3);
+        lectureRepo.save(b3);
 
 
 

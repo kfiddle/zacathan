@@ -26,7 +26,6 @@ fetch("/api/lecture-series-list")
                         })
                     )
                     .catch(err => console.log(err))
-
             })
             menuItemsList.appendChild(seriesTitle);
         })

@@ -67,7 +67,7 @@ main {
 
 #sideBar {
     background-color: white;
-    width: 23vw;
+    width: 24vw;
     height: 100vh;
     transform: translateX(-25vw);
     transition: .75s;
@@ -111,7 +111,6 @@ main {
     display: grid;
     grid-template-columns: 1fr;
     margin-top: 3rem;
-    transition: 2s;
 }
 
 .horizontalDiv {
