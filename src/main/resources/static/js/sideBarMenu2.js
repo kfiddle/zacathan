@@ -1,4 +1,5 @@
 const sideBarMenuItems = [];
+const header = document.querySelector('header');
 
 
 const mainStuff = document.getElementById("theRealContent");
@@ -36,6 +37,7 @@ fetch("/api/lecture-series-list")
             menuItem.addEventListener('click', () => {
                 let lecturesToDisplay = [];
                 body.style.backgroundColor = "rgb(128, 128, 129)";
+                header.style.opacity = "0.7";
 
 
                 fetch("/api/" + series.title + "/lectures")
