@@ -6,11 +6,19 @@
     margin: 0;
     padding: 0;
     border: none;
+    transition: 0.5s;
 }
+
+.cubicleTextDiv {
+    font-weight: 900;
+    transition: 0.3s;
+}
+
+
 
 .smallCubicle:hover {
     background-color: rebeccapurple;
-    opacity: 0.3;
+    opacity: 0.7;
 }
 
 #smallCubicle0 {

@@ -108,9 +108,10 @@ main {
 }
 
 #theRealContent {
+    height: 80vh;
     display: grid;
     grid-template-columns: 1fr;
-    margin-top: 3rem;
+    margin-top: 2rem;
 }
 
 .horizontalDiv {

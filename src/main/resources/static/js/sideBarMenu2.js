@@ -61,23 +61,61 @@ function displaySpecificLectures(lectures) {
     }
 
 
-    for (let j = 0; j <= lectures.length - 3; j = j + 3) {
+    for (let j = 0; j <= lectures.length; j = j + 3) {
         let horizontalDiv = document.createElement('div');
         horizontalDiv.classList.add('horizontalDiv');
         horizontalDiv.id = 'horizontalDiv' + j;
         horizontalDiv.style.transition = (j / 6) + 0.5 + "s";
         for (let k = 0; k < 3; k++) {
-            let smallCubicle = document.createElement('div');
-            smallCubicle.innerHTML = lectures[j + k];
-            smallCubicle.style.width = (mainWidth / 3) + "px";
-            smallCubicle.classList.add("smallCubicle");
-            smallCubicle.id = "smallCubicle" + (j + k);
-            horizontalDiv.appendChild(smallCubicle);
+            if (lectures[j + k]) {
+                let smallCubicle = document.createElement('div');
+                let cubicleTextDiv = document.createElement('div');
+                cubicleTextDiv.innerHTML = lectures[j + k];
+                cubicleTextDiv.classList.add('cubicleTextDiv');
+                smallCubicle.appendChild(cubicleTextDiv);
+                smallCubicle.style.width = (mainWidth / 3) + "px";
+                smallCubicle.classList.add("smallCubicle");
+                smallCubicle.id = "smallCubicle" + (j + k);
+
+                smallCubicle.addEventListener('mouseover', ()=> {
+                    cubicleTextDiv.style.transform = "translateY(-6px)";
+                    cubicleTextDiv.style.color = "darkred";
+                })
+
+                smallCubicle.addEventListener('mouseout', ()=> {
+                    cubicleTextDiv.style.transform = "translateY(0px)";
+                    cubicleTextDiv.style.color = "black";
+                })
+
+
+                horizontalDiv.appendChild(smallCubicle);
+            }
         }
         mainStuff.appendChild(horizontalDiv);
     }
     setTimeout(slideIn, 10);
 }
+
+// for (let j = 0; j <= lectures.length; j = j + 3) {
+//     let horizontalDiv = document.createElement('div');
+//     horizontalDiv.classList.add('horizontalDiv');
+//     horizontalDiv.id = 'horizontalDiv' + j;
+//     horizontalDiv.style.transition = (j / 6) + 0.5 + "s";
+//     for (let k = 0; k < 3; k++) {
+//         if (lectures[j + k]) {
+//             let smallCubicle = document.createElement('div');
+//             smallCubicle.innerHTML = lectures[j + k];
+//             smallCubicle.style.width = (mainWidth / 3) + "px";
+//             smallCubicle.classList.add("smallCubicle");
+//             smallCubicle.id = "smallCubicle" + (j + k);
+//             horizontalDiv.appendChild(smallCubicle);
+//         }
+//     }
+//     mainStuff.appendChild(horizontalDiv);
+// }
+// setTimeout(slideIn, 10);
+// }
+
 
 function slideIn() {
     let slideRules = Array.from(document.querySelectorAll('.horizontalDiv'));
