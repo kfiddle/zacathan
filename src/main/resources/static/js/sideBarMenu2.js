@@ -37,8 +37,6 @@ fetch("/api/lecture-series-list")
             menuItem.addEventListener('click', () => {
                 let lecturesToDisplay = [];
                 body.style.backgroundColor = "rgb(128, 128, 129)";
-                header.style.opacity = "0.7";
-
 
                 fetch("/api/" + series.title + "/lectures")
                     .then(response => response.json())
@@ -62,7 +60,11 @@ function displaySpecificLectures(lectures) {
         mainStuff.removeChild(mainStuff.lastChild);
     }
 
+setTimeout(()=> {
 
+
+
+})
     for (let j = 0; j <= lectures.length; j = j + 3) {
         let horizontalDiv = document.createElement('div');
         horizontalDiv.classList.add('horizontalDiv');
@@ -95,7 +97,7 @@ function displaySpecificLectures(lectures) {
         }
         mainStuff.appendChild(horizontalDiv);
     }
-    setTimeout(slideIn, 10);
+    setTimeout(slideIn, 30);
 }
 
 // for (let j = 0; j <= lectures.length; j = j + 3) {

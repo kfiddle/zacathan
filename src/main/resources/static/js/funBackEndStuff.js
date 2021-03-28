@@ -1,8 +1,7 @@
 const listToRevise = document.getElementById('listToRevise');
 const menuItemsList = document.getElementById("menuItemsList");
-
-
 const editingBox = document.getElementById("editingBox");
+const finalDelete = document.getElementById('finalDelete');
 
 
 fetch("/api/lecture-series-list")
@@ -19,19 +18,17 @@ fetch("/api/lecture-series-list")
                         jsonData.forEach(lecture => {
                             let lectureElem = document.createElement('li');
                             lectureElem.innerText = lecture.title;
-                            lectureElem.addEventListener('click', ()=> {
+                            lectureElem.addEventListener('click', () => {
                                 openEditingBox(lecture.title);
                             })
                             listToRevise.appendChild(lectureElem);
                         })
-                    )
+                        )
                     .catch(err => console.log(err))
             })
             menuItemsList.appendChild(seriesTitle);
         })
-    )
-
-
+        )
     .catch(err => console.log(err))
 
 
@@ -42,15 +39,35 @@ function eraseFormerLectures() {
 }
 
 function openEditingBox(lectureTitle) {
-    editingBox.style.transform =  `translateX(20vw)`;
+    editingBox.style.transform = `translateX(20vw)`;
+
+    let editButton, deleteButton, finalDeleteButton, missclickButton;
+    let editButtons = [deleteButton = document.createElement('button'),
+        editButton = document.createElement('button'),
+        finalDeleteButton = document.createElement('button'),
+        missclickButton = document.createElement('button')]
+
+    deleteButton.innerText = "Delete Lecture";
+    editButton.innerText = "Edit Details";
+
+    editingBox.appendChild(deleteButton);
+    editingBox.appendChild(editButton);
+
+    deleteButton.addEventListener('click', () => {
+        finalDelete.style.transform = `translateX(20vw)`;
+        finalDelete.style.backgroundColor = "darkGoldenRod";
+        finalDeleteButton.innerText = "Just confirming- Lose the lecture?"
+        missclickButton.innerText = "No- keep it and close";
+
+        // finalDeleteButton.addEventListener('click', ()=> {
+        //     fetch()
+        //
+        // })
+        finalDelete.appendChild(finalDeleteButton);
+        finalDelete.appendChild(missclickButton);
+
+    })
 }
-
-
-
-fetch("/api/lectures")
-    .then(response => response.json())
-    .then(jsonData => console.log(jsonData))
-    .catch(err => console.log(err))
 
 
 // fetch("/api/lecture-series-list")

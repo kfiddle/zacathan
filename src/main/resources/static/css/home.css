@@ -68,7 +68,7 @@ main {
 
 #sideBar {
     background-color: white;
-    width: 24vw;
+    width: 21vw;
     height: 100vh;
     transform: translateX(-25vw);
     transition: .75s;

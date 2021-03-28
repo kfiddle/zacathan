@@ -10,6 +10,7 @@ button {
 
 button:hover {
     opacity: 0.5;
+    color: chartreuse;
 }
 
 #menuItemsList li {
@@ -33,10 +34,13 @@ li:hover {
     grid-template-columns: 1fr 2fr;
 }
 
-#editingBox {
+.editingBox {
     height: 8rem;
     background-color: sandybrown;
+    opacity: 0.9;
     border-radius: 8px;
     transform: translateX(100vw);
     transition: 1s;
 }
+
+
