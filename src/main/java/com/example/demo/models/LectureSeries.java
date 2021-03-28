@@ -43,4 +43,7 @@ public class LectureSeries {
     }
 
 
+    public void removeLecture(String lectureTitle) {
+        lectures.removeIf(lecture -> lecture.getTitle().equals(lectureTitle));
+    }
 }

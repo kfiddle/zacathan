@@ -6,10 +6,7 @@ import com.example.demo.models.LectureSeries;
 import com.example.demo.repositories.LectureRepository;
 import com.example.demo.repositories.LectureSeriesRepository;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import java.util.ArrayList;
@@ -52,6 +49,11 @@ public class BackToJS {
         return lectureRepo.findByLectureSeries(seriesToFind);
     }
 
+    @PostMapping("/api/lecture-series-list/{seriesTitle}/{lectureTitle}/delete-lecture")
+    public void removeLectureFromSpecificSeries(@PathVariable String seriesTitle, @PathVariable String lectureTitle) {
+        LectureSeries seriesToFind = lectureSeriesRepo.findByTitle(seriesTitle);
+        seriesToFind.removeLecture(lectureTitle);
+    }
 
 
 

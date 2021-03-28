@@ -19,7 +19,7 @@ fetch("/api/lecture-series-list")
                             let lectureElem = document.createElement('li');
                             lectureElem.innerText = lecture.title;
                             lectureElem.addEventListener('click', () => {
-                                openEditingBox(lecture.title);
+                                openEditingBox(item.title, lecture.title);
                             })
                             listToRevise.appendChild(lectureElem);
                         })
@@ -38,7 +38,7 @@ function eraseFormerLectures() {
     }
 }
 
-function openEditingBox(lectureTitle) {
+function openEditingBox(seriesTitle, lectureTitle) {
     editingBox.style.transform = `translateX(20vw)`;
 
     let editButton, deleteButton, finalDeleteButton, missclickButton;
@@ -59,10 +59,20 @@ function openEditingBox(lectureTitle) {
         finalDeleteButton.innerText = "Just confirming- Lose the lecture?"
         missclickButton.innerText = "No- keep it and close";
 
-        // finalDeleteButton.addEventListener('click', ()=> {
-        //     fetch()
-        //
-        // })
+        finalDeleteButton.addEventListener('click', () => {
+            let formData = {
+                seriesTitle: seriesTitle,
+                lectureTitle: lectureTitle
+            }
+
+            fetch("/api/lecture-series-list/" + seriesTitle + "/" + lectureTitle + "/delete-lecture",
+                {
+                    method: 'POST',
+                    body: JSON.stringify(formData)
+                }
+                ).catch(error => console.log(error));
+
+        })
         finalDelete.appendChild(finalDeleteButton);
         finalDelete.appendChild(missclickButton);
 
