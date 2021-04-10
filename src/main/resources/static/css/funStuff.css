@@ -74,4 +74,16 @@ li:hover {
     pointer-events: all;
 }
 
+#controlBoard {
+    position: absolute;
+    bottom: 15vh;
+    width: 15vw;
+    display: flex;
+    flex-direction: column;
+}
+
+#controlBoard button {
+    height: 2rem;
+}
+
 
