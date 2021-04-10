@@ -77,11 +77,8 @@ function moveSideBar() {
         while (mainStuff.lastChild) {
             mainStuff.removeChild(mainStuff.lastChild);
         }
-
-        // body.style.backgroundColor =  "rgb(235, 245, 255)";
         currentSideBarPosition = "closed";
     } else if (currentSideBarPosition === "closed") {
-        // body.style.backgroundColor = "rgb(128, 128, 129)";
         sideBar.style.transform = `translateX(-16px)`;
         currentSideBarPosition = "open";
     }
@@ -93,12 +90,4 @@ function contentDivsSlideIn() {
     slideRules.forEach(slide => {
         slide.style.transform = `translateX(-1vw)`;
     })
-
 }
-
-
-   // *** in case we need the original below
-
-// function mainContainerEnter() {
-//     mainStuffContainer.style.transform = `translateX(-1vw)`;
-// }

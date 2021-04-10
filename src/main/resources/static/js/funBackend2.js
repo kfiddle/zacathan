@@ -7,6 +7,15 @@ const testingModal = document.getElementById('editingModal');
 const backdrop = document.getElementById("backdrop");
 const xButton = document.getElementById('x');
 
+const LECTURES = 'lectures menu';
+const SERIES = 'series';
+const ADDSERIES = 'add your new Series title below';
+const REMOVESERIES = 'which is to be removed?'
+
+
+const seriesButtons = [document.getElementById('addSeriesButton'),
+    document.getElementById('removeSeriesButton'),
+    document.getElementById('editSeriesButton')]
 
 
 async function doThingsOnThePage() {
@@ -29,7 +38,7 @@ async function doThingsOnThePage() {
         toggleBackdrop();
     }
 
-    const openEditingBox = (lectureTitle) => {
+    const openEditingBox = (titleToEdit, menuToEdit) => {
         toggleModal();
     }
 
@@ -40,8 +49,8 @@ async function doThingsOnThePage() {
                 item.lectures.forEach(lecture => {
                     let lectureElem = document.createElement('li');
                     lectureElem.innerText = lecture.title;
-                    lectureElem.addEventListener('click', ()=> {
-                        openEditingBox(lecture.title);
+                    lectureElem.addEventListener('click', () => {
+                        openEditingBox(lecture.title, LECTURES);
                     })
                     listToRevise.appendChild(lectureElem);
 
@@ -50,16 +59,13 @@ async function doThingsOnThePage() {
         })
 
 
-
-
-
     }
 
 
     fullShebang.forEach(sheBang => {
         let seriesTitle = document.createElement('li');
         seriesTitle.innerText = sheBang.title;
-        seriesTitle.addEventListener('click', ()=> {
+        seriesTitle.addEventListener('click', () => {
             openLectures(sheBang.title);
         });
         menuItemsList.appendChild(seriesTitle);
@@ -67,10 +73,13 @@ async function doThingsOnThePage() {
 
 
     xButton.addEventListener('click', toggleModal);
+    seriesButtons.forEach((button, index) => {
+        button.addEventListener('click', () => {
+            openEditingBox(button.innerText, SERIES);
+        })
+    })
 
 }
-
-
 
 
 doThingsOnThePage();
