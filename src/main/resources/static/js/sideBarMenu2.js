@@ -1,9 +1,11 @@
 const sideBarMenuItems = [];
 const header = document.querySelector('header');
-
 const mainStuff = document.getElementById("theRealContent");
 const mainWidth = mainStuff.offsetWidth;
+const converterDiv = document.getElementById('converterDiv');
+
 const COLONIALCONVERTER = 'Colonial Currency Converter';
+
 
 async function loadSideBarPage() {
 
@@ -43,8 +45,9 @@ async function loadSideBarPage() {
         menuItem.addEventListener('click', () => {
             let lecturesToDisplay = [];
 
-            series.title === COLONIALCONVERTER ? body.style.backgroundColor = "red" :
+            series.title === COLONIALCONVERTER ? converterDiv.style.transform = 'translateY(-100vh)':
             body.style.backgroundColor = "rgb(128, 128, 129)";
+            // body.style.overflow = 'scroll';
             series.lectures.forEach(lecture => {
                 lecturesToDisplay.push(lecture.title);
             })
@@ -106,7 +109,6 @@ async function loadSideBarPage() {
             slideRules.forEach(slide => {
                 slide.style.transform = `translateX(-1vw)`;
             })
-
         }
 
         function changeColor(menuItem, index) {

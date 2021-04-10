@@ -10,6 +10,7 @@ span {
 body {
     background-color: rgb(235, 245, 255);
     transition: 5s;
+    overflow: hidden;
 }
 
 header {
@@ -122,6 +123,8 @@ main {
     padding: 0;
     transform: translateX(100vw);
 }
+
+
 
 
 

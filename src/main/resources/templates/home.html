@@ -7,6 +7,14 @@
 
     <link rel="stylesheet" href="/css/home.css">
     <link rel="stylesheet" href="/css/smallCubicle.css">
+    <link rel="stylesheet" href="/css/converterAccordions.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+          integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
     <title>Welcome Page</title>
@@ -17,7 +25,7 @@
 <header>
     <div id="sideBarButtonDiv">
         <span class="bars" id="bars"></span>
-        <h4 class="leastHeaderishText" id="navElement">NAV STUFF</h4>
+        <h4 class="leastHeaderishText" id="navElement"></h4>
     </div>
 
     <div id="title">
@@ -31,15 +39,152 @@
 
     <div id="sideBar"></div>
     <div id="theRealContent"></div>
-
-
 </main>
+
+<div id="converterDiv">
+
+    <div class="bgImage"></div>
+
+<div id="converterHeader">
+
+</div>
+
+
+    <div class="container">
+
+        <button class="accordion">
+            <span class="accordionLabel">add</span>
+        </button>
+
+        <div class="panel">
+
+
+            <div class="forms">
+            </div>
+
+            <div class="lineTwo">
+                <button class="function addCurrency">Add More Currency</button>
+
+                <button class="function calculate">Calculate
+                </button>
+
+
+                <button class="solution">
+                    <div class="answer pounds">Total Pounds</div>
+                    <div class="answer shillings">Total Shillings</div>
+                    <div class="answerLast pence">Total Pence</div>
+                </button>
+            </div>
+        </div>
+
+
+
+
+
+
+        <button class="accordion">
+            <span class="accordionLabel">subtract</span>
+        </button>
+        <div class="panel">
+
+
+            <div class="forms">
+            </div>
+
+            <div class="lineTwo">
+                <button class="function addCurrency">Add More Currency</button>
+
+                <button class="function calculate">Calculate
+                    <!--<div id="operators2">
+                        <i id="plus" class="fa fa-plus"></i>
+                    </div>-->
+                </button>
+
+
+                <button class="solution">
+                    <div class="answer pounds">Total Pounds</div>
+                    <div class="answer shillings">Total Shillings</div>
+                    <div class="answerLast pence">Total Pence</div>
+                </button>
+            </div>
+        </div>
+
+        <button class="accordion">
+            <span class="accordionLabel">multiply</span>
+        </button>
+        <div class="panel">
+
+
+            <div class="forms">
+            </div>
+
+            <div class="lineTwo">
+
+                <button class="multiplier">
+                    <div class="operator">
+                        <i id="times" class="fa fa-times"></i>
+                    </div>
+                    <div class="addNumber">
+                        <input type="number" id="multiplier">
+                    </div>
+                </button>
+
+                <button class="function calculate">Calculate</button>
+
+                <button class="solution">
+                    <div class="answer pounds">Total Pounds</div>
+                    <div class="answer shillings">Total Shillings</div>
+                    <div class="answerLast pence">Total Pence</div>
+                </button>
+            </div>
+        </div>
+
+
+
+
+        <button class="accordion">
+            <span class="accordionLabel">divide</span>
+        </button>
+        <div class="panel">
+
+
+            <div class="forms">
+            </div>
+
+            <div class="lineTwo">
+
+                <button class="solution">
+                    <ul class="multiplier">Divide By: </ul>
+                    <input type="number" id="divisor">
+                </button>
+
+                <button class="function calculate">Calculate
+                    <!--<div id="operators2">
+                        <i id="plus" class="fa fa-plus"></i>
+                    </div>-->
+                </button>
+
+
+                <button class="solution">
+                    <div class="answer pounds">Total Pounds</div>
+                    <div class="answer shillings">Total Shillings</div>
+                    <div class="answerLast pence">Total Pence</div>
+                </button>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
 
 <script src="/js/frontLoader.js"></script>
 <script src="/js/funBackEndStuff.js"></script>
 <script src="/js/chiefWarrantOfficerBars.js"></script>
 <script src="/js/mainLayoutStuff.js"></script>
 <script src="/js/sideBarMenu2.js"></script>
+<script src="/js/currencyConverter.js"></script>
+<script src="/js/accordions.js"></script>
 
 
 </body>
