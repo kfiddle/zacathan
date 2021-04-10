@@ -43,4 +43,35 @@ li:hover {
     transition: 1s;
 }
 
+.modal {
+    position: fixed;
+    z-index: 100;
+    width: 80%;
+    top: 30vh;
+    left: 10%;
+    display: none;
+}
+
+.modal.visible {
+    display: block;
+    background-color: azure;
+    animation: fade-slide-in 1s ease-out forwards;
+}
+
+#backdrop.visible {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background: rgba(0,0,0,0.75);
+    z-index: 10;
+    pointer-events: none;
+}
+
+#backdrop {
+    display: block;
+    pointer-events: all;
+}
+
 

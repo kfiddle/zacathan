@@ -34,6 +34,10 @@ public class LectureSeries {
     public LectureSeries() {
     }
 
+    public Long getId() {
+        return id;
+    }
+
     public String getTitle() {
         return title;
     }
@@ -46,4 +50,5 @@ public class LectureSeries {
     public void removeLecture(String lectureTitle) {
         lectures.removeIf(lecture -> lecture.getTitle().equals(lectureTitle));
     }
+
 }
