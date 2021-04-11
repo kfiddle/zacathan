@@ -1,8 +1,6 @@
 const converterContainer = document.getElementById('converterContainer');
 
-
-
-let operands = {
+const operands = {
     ADD: 'Add',
     SUBTRACT: 'Subtract',
     MULTIPLY: 'Multiply',
@@ -99,6 +97,8 @@ accordions.forEach(accordion => {
     })
 
 })
+
+
 
 
 

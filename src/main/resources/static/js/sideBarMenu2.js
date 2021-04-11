@@ -1,5 +1,8 @@
 const sideBarMenuItems = [];
 const header = document.querySelector('header');
+const headerH3Element = document.getElementById('title').querySelector('h3');
+const headerH5Element = document.getElementById('title').querySelector('h5');
+
 const mainStuff = document.getElementById("theRealContent");
 const mainWidth = mainStuff.offsetWidth;
 const converterDiv = document.getElementById('converterDiv');
@@ -17,6 +20,37 @@ async function loadSideBarPage() {
     };
 
     fullShebang.push(newAddition);
+
+    function changeColor(menuItem, index) {
+        if (index < menuItem.innerHTML.length + 1) {
+            let originalString = menuItem.innerText;
+            setTimeout(oneLetterAtATime, index * 10, menuItem, originalString, index);
+            index++;
+            changeColor(menuItem, index);
+        }
+    }
+
+    function oneLetterAtATime(menuItem, originalString, index) {
+        menuItem.innerText = originalString.substr(0, index);
+        menuItem.style.color = "rgb(0, 20, 230)";
+    }
+
+    const changeToConverterHeading = () => {
+        header.style.color = 'white';
+        changeColor()
+
+        headerH3Element.innerText = COLONIALCONVERTER;
+        headerH5Element.innerText = '';
+    }
+
+    const displayConverter = () => {
+        converterDiv.style.transform = 'translateY(-100vh)';
+        setTimeout(()=> {
+            header.style.backgroundColor = 'black';
+        }, 1000);
+
+        setTimeout( changeToConverterHeading, 1300);
+    }
 
     fullShebang.forEach(series => {
         let menuItem = document.createElement('h3');
@@ -45,9 +79,9 @@ async function loadSideBarPage() {
         menuItem.addEventListener('click', () => {
             let lecturesToDisplay = [];
 
-            series.title === COLONIALCONVERTER ? converterDiv.style.transform = 'translateY(-100vh)':
+            series.title === COLONIALCONVERTER ? displayConverter():
             body.style.backgroundColor = "rgb(128, 128, 129)";
-            // body.style.overflow = 'scroll';
+
             series.lectures.forEach(lecture => {
                 lecturesToDisplay.push(lecture.title);
             })
@@ -56,6 +90,8 @@ async function loadSideBarPage() {
 
 
         sideBar.appendChild(menuItem)
+
+
 
 
         function displaySpecificLectures(lectures) {
@@ -111,19 +147,9 @@ async function loadSideBarPage() {
             })
         }
 
-        function changeColor(menuItem, index) {
-            if (index < menuItem.innerHTML.length + 1) {
-                let originalString = menuItem.innerText;
-                setTimeout(oneLetterAtATime, index * 10, menuItem, originalString, index);
-                index++;
-                changeColor(menuItem, index);
-            }
-        }
 
-        function oneLetterAtATime(menuItem, originalString, index) {
-            menuItem.innerText = originalString.substr(0, index);
-            menuItem.style.color = "rgb(0, 20, 230)";
-        }
+
+
     })
 
 }

@@ -109,6 +109,17 @@ function changeToNumbers(list) {
     return convertedList;
 }
 
+function changeToNumbers(list) {
+    return list.map((listItem, index) => {
+         if (!listItem.value) {
+             return 0
+         } else {
+             return parseInt(listItem.value);
+         }
+    })
+}
+
+
 
 function addOrSubtractTheFields(j) {
     let convertedPounds = changeToNumbers(poundsToAdd);

@@ -23,7 +23,7 @@ header {
     position: fixed;
     z-index: 1;
     box-shadow: 1px 1px lightgray;
-    transition: 0.5s;
+    transition: 1.5s;
 }
 
 #title {
