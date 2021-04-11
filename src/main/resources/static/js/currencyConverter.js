@@ -1,12 +1,4 @@
-const forms = Array.from(document.querySelectorAll(".forms"));
-const addCurrencyButtons = Array.from(document.querySelectorAll(".addCurrency"));
-const calculateButtons = Array.from(document.querySelectorAll(".calculate"));
-const poundsDivs = Array.from(document.querySelectorAll(".pounds"));
-const shillingsDivs = Array.from(document.querySelectorAll(".shillings"));
-const penceDivs = Array.from(document.querySelectorAll(".pence"));
 
-const multiplier = document.getElementById('multiplier');
-const divisor = document.getElementById("divisor");
 
 const poundsToAdd = [];
 const shillingsToAdd = [];
