@@ -97,17 +97,17 @@ function createFormFromPence(totalInPence) {
 }
 
 
-function changeToNumbers(list) {
-    let convertedList = [];
-    for (let i = 0; i < list.length; i++) {
-        if (list[i].value === "") {
-            convertedList[i] = 0;
-        } else {
-            convertedList[i] = parseInt(list[i].value);
-        }
-    }
-    return convertedList;
-}
+// function changeToNumbers(list) {
+//     let convertedList = [];
+//     for (let i = 0; i < list.length; i++) {
+//         if (list[i].value === "") {
+//             convertedList[i] = 0;
+//         } else {
+//             convertedList[i] = parseInt(list[i].value);
+//         }
+//     }
+//     return convertedList;
+// }
 
 function changeToNumbers(list) {
     return list.map((listItem, index) => {

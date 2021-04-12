@@ -1,11 +1,21 @@
 const converterContainer = document.getElementById('converterContainer');
 
-const operands = {
-    ADD: 'Add',
-    SUBTRACT: 'Subtract',
-    MULTIPLY: 'Multiply',
-    DIVIDE: 'Divide'
+const operands = ['Add', 'Subtract', 'Multiply', 'Divide'];
+
+
+let accordionButtons = [];
+
+
+for (let operand of operands) {
+    createOuterOperandButtons(operand);
+    console.log(operand)
 }
+
+
+const closePanel = button => {
+    converterContainer.removeChild(button.nextElementSibling);
+}
+
 
 const addMoreCurrencyComponent = () => {
     let addCurrencyButton = document.createElement('button');
@@ -37,19 +47,7 @@ const createFinalAnswerComponent = () => {
 }
 
 
-
-
-
-const buildAConverterComponent = operand => {
-    let outerButton = document.createElement('button');
-    outerButton.className = 'accordion';
-    outerButton.opened = false;
-
-    let span = document.createElement('span');
-    span.classList.add('accordionLabel');
-    span.innerText = operand;
-
-    outerButton.appendChild(span);
+const createPanel = (operand) => {
     let panel = document.createElement('div');
     panel.classList.add('panel');
     let formsDiv = document.createElement('div');
@@ -80,7 +78,6 @@ const buildAConverterComponent = operand => {
         lineTwoDiv.appendChild(divisionButton)
     }
 
-
     let calcButton = document.createElement('button');
     calcButton.classList.add('function');
     calcButton.classList.add('calculate')
@@ -92,41 +89,60 @@ const buildAConverterComponent = operand => {
 
     panel.appendChild(formsDiv);
     panel.appendChild(lineTwoDiv);
-    converterContainer.appendChild(outerButton);
-    converterContainer.appendChild(panel);
+    // converterContainer.appendChild(panel);
+    panel.style.display = 'block';
+    return panel;
 }
 
-for (let key in operands) {
-    // buildAConverterComponent(operands[key]);
-    createOuterOperandButtons(operands[key]);
-}
+function createOuterOperandButtons(operand) {
+    let outerButton = document.createElement('button');
+    outerButton.className = 'accordion';
+    outerButton.opened = false;
 
-let forms = Array.from(document.querySelectorAll(".forms"));
-let addCurrencyButtons = Array.from(document.querySelectorAll(".addCurrency"));
-let poundsDivs = Array.from(document.querySelectorAll(".pounds"));
-let shillingsDivs = Array.from(document.querySelectorAll(".shillings"));
-let penceDivs = Array.from(document.querySelectorAll(".pence"));
-let multiplier = document.getElementById('multiplier');
-let divisor = document.getElementById("divisor");
+    let span = document.createElement('span');
+    span.classList.add('accordionLabel');
+    span.innerText = operand;
+    outerButton.appendChild(span);
+    outerButton.addEventListener('click', () => {
+        if (outerButton.opened) {
+            closePanel(outerButton)
+            outerButton.opened = false;
+        }
+        else if (!outerButton.opened) {
+            accordionButtons.forEach(button=> {
+                if (button !== outerButton && button.opened === true) {
+                    closePanel(button);
+                    button.opened = false;
+                }
+            })
+            let panel = createPanel(operand);
+            converterContainer.insertBefore(panel, outerButton.nextElementSibling);
+            outerButton.opened = true;
+        }
 
-let accordions = Array.from(document.querySelectorAll(".accordion"));
 
-
-accordions.forEach(accordion => {
-    accordion.addEventListener('click', () => {
-
-        accordions.forEach(accordion => {
-            accordion.nextElementSibling.style.display = 'none';
-            accordion.opened = false;
-        })
-
-        accordion.nextElementSibling.style.display === 'block' ?
-            accordion.nextElementSibling.style.display = 'none' :
-            accordion.nextElementSibling.style.display = 'block'
-        accordion.opened = true;
     })
 
-})
+
+    // let accordionButtons = Array.from(document.querySelectorAll('.accordion'));
+    //
+    //
+    // if (panel) {
+    //     converterContainer.removeChild(panel);
+    // }
+
+    // if (!outerButton.opened) {
+    // let panel = createPanel(operand);
+    // converterContainer.insertBefore(panel, outerButton.nextElementSibling);
+    //     outerButton.opened = true;
+    // }
+
+
+    accordionButtons.push(outerButton);
+    converterContainer.appendChild(outerButton);
+
+}
+
 
 
 
