@@ -1,14 +1,10 @@
 const converterContainer = document.getElementById('converterContainer');
 
 const operands = ['Add', 'Subtract', 'Multiply', 'Divide'];
-
-
 let accordionButtons = [];
-
 
 for (let operand of operands) {
     createOuterOperandButtons(operand);
-    console.log(operand)
 }
 
 
@@ -16,14 +12,6 @@ const closePanel = button => {
     converterContainer.removeChild(button.nextElementSibling);
 }
 
-
-const addMoreCurrencyComponent = () => {
-    let addCurrencyButton = document.createElement('button');
-    addCurrencyButton.classList.add('function');
-    addCurrencyButton.classList.add('addCurrency')
-    addCurrencyButton.innerText = 'Add More Currency';
-    return addCurrencyButton;
-}
 
 const createFinalAnswerComponent = () => {
 
@@ -46,6 +34,37 @@ const createFinalAnswerComponent = () => {
     return solutionButton;
 }
 
+const addOneField = () => {
+    let formDiv = document.createElement('div');
+    formDiv.setAttribute("class", "currencyTypes")
+    let poundsInput = document.createElement('input');
+    poundsInput.setAttribute("class", "input");
+    let shillingsInput = document.createElement('input');
+    shillingsInput.setAttribute("class", "input");
+    let penceInput = document.createElement('input');
+    penceInput.setAttribute("class", "input");
+
+    poundsInput.setAttribute('placeholder', 'pounds');
+    poundsInput.setAttribute('type', 'text');
+    shillingsInput.setAttribute('placeholder', 'shillings');
+    shillingsInput.setAttribute('type', 'text');
+    penceInput.setAttribute('placeholder', 'pence');
+    shillingsInput.setAttribute('type', 'text');
+
+    formDiv.appendChild(poundsInput);
+    formDiv.appendChild(shillingsInput);
+    formDiv.appendChild(penceInput);
+    return formDiv;
+}
+
+const addMoreCurrencyComponent = () => {
+    let addCurrencyButton = document.createElement('button');
+    addCurrencyButton.classList.add('function');
+    addCurrencyButton.classList.add('addCurrency')
+    addCurrencyButton.innerText = 'Add More Currency';
+    return addCurrencyButton;
+}
+
 
 const createPanel = (operand) => {
     let panel = document.createElement('div');
@@ -55,10 +74,18 @@ const createPanel = (operand) => {
     let lineTwoDiv = document.createElement('div');
     lineTwoDiv.classList.add('lineTwo');
 
-    if (operand === operands.ADD || operand === operands.SUBTRACT) {
+    if (operand === operands[0] || operand === operands[1]) {
         let addCurrencyButton = addMoreCurrencyComponent();
+
+        addCurrencyButton.addEventListener('click', () => {
+            formsDiv.appendChild(addOneField());
+        });
+
         lineTwoDiv.appendChild(addCurrencyButton);
-    } else if (operand === operands.MULTIPLY) {
+        formsDiv.appendChild(addOneField());
+        formsDiv.appendChild(addOneField());
+
+    } else if (operand === operands[2]) {
         let multiplyButton = document.createElement('button');
         multiplyButton.className = 'multiplier';
         multiplyButton.innerHTML = `
@@ -69,13 +96,17 @@ const createPanel = (operand) => {
                     <input type="number" id="multiplier">
                 </div>`
         lineTwoDiv.appendChild(multiplyButton);
-    } else if (operand === operands.DIVIDE) {
+        formsDiv.appendChild(addOneField());
+
+    } else if (operand === operands[3]) {
         let divisionButton = document.createElement('button');
         divisionButton.className = 'solution';
         divisionButton.innerHTML = `
             <ul class="multiplier">Divide By: </ul>
                 <input type="number" id="divisor">`
         lineTwoDiv.appendChild(divisionButton)
+        formsDiv.appendChild(addOneField());
+
     }
 
     let calcButton = document.createElement('button');
@@ -89,7 +120,6 @@ const createPanel = (operand) => {
 
     panel.appendChild(formsDiv);
     panel.appendChild(lineTwoDiv);
-    // converterContainer.appendChild(panel);
     panel.style.display = 'block';
     return panel;
 }
@@ -107,9 +137,8 @@ function createOuterOperandButtons(operand) {
         if (outerButton.opened) {
             closePanel(outerButton)
             outerButton.opened = false;
-        }
-        else if (!outerButton.opened) {
-            accordionButtons.forEach(button=> {
+        } else if (!outerButton.opened) {
+            accordionButtons.forEach(button => {
                 if (button !== outerButton && button.opened === true) {
                     closePanel(button);
                     button.opened = false;
@@ -119,23 +148,7 @@ function createOuterOperandButtons(operand) {
             converterContainer.insertBefore(panel, outerButton.nextElementSibling);
             outerButton.opened = true;
         }
-
-
     })
-
-
-    // let accordionButtons = Array.from(document.querySelectorAll('.accordion'));
-    //
-    //
-    // if (panel) {
-    //     converterContainer.removeChild(panel);
-    // }
-
-    // if (!outerButton.opened) {
-    // let panel = createPanel(operand);
-    // converterContainer.insertBefore(panel, outerButton.nextElementSibling);
-    //     outerButton.opened = true;
-    // }
 
 
     accordionButtons.push(outerButton);
