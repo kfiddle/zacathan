@@ -1,8 +1,20 @@
-let calculateButtons = Array.from(document.querySelectorAll(".calculate"));
+const convertToPence = (poundsShillingsPence) => {
+    return poundsShillingsPence[0] * 240 + poundsShillingsPence[1] * 12 + poundsShillingsPence[2];
+}
 
+class ConvertedAmountFromPence {
+    pounds;
+    shillings;
+    pence;
+    totalInPence
 
-const convertToPence = (pounds, shillings, pence) => {
-    return pounds * 240 + shillings * 12 + pence;
+    constructor(totalPence) {
+        this.totalInPence = totalPence;
+        this.pounds = ~~(totalPence / 240);
+        let leftoverPence = totalPence % 240;
+        this.shillings = ~~(leftoverPence / 12);
+        this.pence = leftoverPence % 12;
+    }
 }
 
 const convertPenceBack = (totalPence) => {
@@ -15,44 +27,69 @@ const convertPenceBack = (totalPence) => {
     return [pounds, shillings, pence];
 }
 
-// function addOneField(whichAccordion) {
-//     let formDiv = document.createElement('div');
-//     formDiv.setAttribute("class", "currencyTypes")
-//     let poundsInput = document.createElement('input');
-//     poundsInput.setAttribute("class", "input");
-//     let shillingsInput = document.createElement('input');
-//     shillingsInput.setAttribute("class", "input");
-//     let penceInput = document.createElement('input');
-//     penceInput.setAttribute("class", "input");
-//
-//     poundsInput.setAttribute('placeholder', 'pounds');
-//     poundsInput.setAttribute('type', 'text');
-//     shillingsInput.setAttribute('placeholder', 'shillings');
-//     shillingsInput.setAttribute('type', 'text');
-//     penceInput.setAttribute('placeholder', 'pence');
-//     shillingsInput.setAttribute('type', 'text');
-//
-//     formDiv.appendChild(poundsInput);
-//     formDiv.appendChild(shillingsInput);
-//     formDiv.appendChild(penceInput);
-//     forms[whichAccordion].appendChild(formDiv);
-// }
-//
-// for (let i = 0; i < forms.length; i++) {
-//     addOneField(i);
-//     if (i < 2) {
-//         addOneField(i);
-//     }
-// }
 
+const totalOf = (listOfNumbers) => {
+    return listOfNumbers.reduce((previous, current) => {
+        return previous + parseInt(current.value);
+    }, 0);
+}
 
+const reduceTheLists = (lists, operand) => {
+    let answer = [];
+    lists.forEach(list => {
+        let listWithZeros = list.map(input => {
+            if (isNaN(parseInt(input.value))) {
+                return 0;
+            } else {
+                return parseInt(input.value);
+            }
+        })
 
-
-calculateButtons.forEach((button, index) => {
-    button.addEventListener('click', ()=> {
-        console.log(index);
+        if (operand === operands.add) {
+            answer.push(listWithZeros.reduce((previous, current) => {
+                return previous + current;
+            }, 0));
+        } else {
+            answer.push(listWithZeros.reduce((a, b) => {
+                return a - b;
+            }));
+        }
     })
-})
+    return answer;
+}
+
+
+const calculate = (operand) => {
+    // let pounds = Array.from(document.querySelectorAll('.poundsInput'));
+    // let shillings = Array.from(document.querySelectorAll('.shillingsInput'));
+    // let pence = Array.from(document.querySelectorAll('.penceInput'));
+
+    let allGivenAmounts = [Array.from(document.querySelectorAll('.poundsInput')),
+        Array.from(document.querySelectorAll('.shillingsInput')),
+        Array.from(document.querySelectorAll('.penceInput'))];
+
+    let showPoundsElem = document.getElementById('pounds');
+    let showShillingsElem = document.getElementById('shillings');
+    let showPenceElem = document.getElementById('pence');
+    let totalPences;
+
+    if (operand === operands.add || operand === operands.subtract) {
+        totalPences = convertToPence(reduceTheLists(allGivenAmounts, operand));
+        console.log(totalPences);
+        console.log(allGivenAmounts[0]);
+        console.log(allGivenAmounts[0].length);
+    }
+
+
+    let finalAnswer = new ConvertedAmountFromPence(totalPences);
+    console.log(operand);
+    console.log(finalAnswer);
+
+    showPoundsElem.innerText = finalAnswer.pounds + '  ' + 'pounds';
+    showShillingsElem.innerText = finalAnswer.shillings + '  ' + 'shillings';
+    showPenceElem.innerText = finalAnswer.pence + '  ' + 'pence';
+
+}
 
 
 

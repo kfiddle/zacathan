@@ -1,12 +1,20 @@
 const converterContainer = document.getElementById('converterContainer');
 
-const operands = ['Add', 'Subtract', 'Multiply', 'Divide'];
 let accordionButtons = [];
 
-for (let operand of operands) {
-    createOuterOperandButtons(operand);
+const operands = {
+    add: 'Add',
+    subtract: 'Subtract',
+    multiply: 'Multiply',
+    divide: 'Divide'
 }
 
+console.log(operands.add);
+
+for (let operand in operands) {
+    console.log(operands[operand]);
+    createOuterOperandButtons(operands[operand]);
+}
 
 const closePanel = button => {
     converterContainer.removeChild(button.nextElementSibling);
@@ -28,6 +36,7 @@ const createFinalAnswerComponent = () => {
         let div = document.createElement('div')
         div.classList.add(value[0]);
         div.classList.add(value[1]);
+        div.id = value[1];
         div.innerText = key;
         solutionButton.appendChild(div);
     }
@@ -39,10 +48,14 @@ const addOneField = () => {
     formDiv.setAttribute("class", "currencyTypes")
     let poundsInput = document.createElement('input');
     poundsInput.setAttribute("class", "input");
+    poundsInput.setAttribute("class", "poundsInput");
+
     let shillingsInput = document.createElement('input');
     shillingsInput.setAttribute("class", "input");
+    shillingsInput.setAttribute('class', 'shillingsInput');
     let penceInput = document.createElement('input');
     penceInput.setAttribute("class", "input");
+    penceInput.setAttribute('class', 'penceInput');
 
     poundsInput.setAttribute('placeholder', 'pounds');
     poundsInput.setAttribute('type', 'text');
@@ -74,7 +87,7 @@ const createPanel = (operand) => {
     let lineTwoDiv = document.createElement('div');
     lineTwoDiv.classList.add('lineTwo');
 
-    if (operand === operands[0] || operand === operands[1]) {
+    if (operand === operands.add || operand === operands.subtract) {
         let addCurrencyButton = addMoreCurrencyComponent();
 
         addCurrencyButton.addEventListener('click', () => {
@@ -85,7 +98,7 @@ const createPanel = (operand) => {
         formsDiv.appendChild(addOneField());
         formsDiv.appendChild(addOneField());
 
-    } else if (operand === operands[2]) {
+    } else if (operand === operands.multiply) {
         let multiplyButton = document.createElement('button');
         multiplyButton.className = 'multiplier';
         multiplyButton.innerHTML = `
@@ -98,7 +111,7 @@ const createPanel = (operand) => {
         lineTwoDiv.appendChild(multiplyButton);
         formsDiv.appendChild(addOneField());
 
-    } else if (operand === operands[3]) {
+    } else if (operand === operands.divide) {
         let divisionButton = document.createElement('button');
         divisionButton.className = 'solution';
         divisionButton.innerHTML = `
@@ -113,6 +126,10 @@ const createPanel = (operand) => {
     calcButton.classList.add('function');
     calcButton.classList.add('calculate')
     calcButton.innerText = 'Calculate';
+    calcButton.addEventListener('click', ()=> {
+        calculate(operand);
+    });
+
     lineTwoDiv.appendChild(calcButton);
 
     let solutionButton = createFinalAnswerComponent();
