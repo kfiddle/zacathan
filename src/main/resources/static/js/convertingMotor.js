@@ -26,10 +26,8 @@ const convertDivToPence = (divMoneyFields) => {
     return totalPence;
 }
 
-
 class ConvertedAmountFromPence {
     constructor(totalPence) {
-        this.totalInPence = totalPence;
         this.pounds = ~~(totalPence / 240);
         let leftoverPence = totalPence % 240;
         this.shillings = ~~(leftoverPence / 12);
@@ -66,8 +64,6 @@ const calculate = (operand) => {
     }
 
     let finalAnswer = new ConvertedAmountFromPence(totalPences);
-    console.log(operand);
-    console.log(finalAnswer);
 
     showPoundsElem.innerText = finalAnswer.pounds + '  ' + 'pounds';
     showShillingsElem.innerText = finalAnswer.shillings + '  ' + 'shillings';
