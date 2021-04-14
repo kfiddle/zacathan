@@ -1,10 +1,8 @@
-
 const renderFromZero = (element) => {
     if (isNaN(parseInt(element.value))) {
         return 0;
     } return parseInt(element.value)
 }
-
 
 const calculate = (operand) => {
     let finalAmount = {};
@@ -43,5 +41,4 @@ const calculate = (operand) => {
     showPoundsElem.innerText = finalAmount.pounds + '  ' + 'pounds';
     showShillingsElem.innerText = finalAmount.shillings + '  ' + 'shillings';
     showPenceElem.innerText = finalAmount.pence + '  ' + 'pence';
-
 }
