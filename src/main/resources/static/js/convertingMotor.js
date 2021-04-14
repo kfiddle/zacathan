@@ -26,6 +26,7 @@ const convertDivToPence = (divMoneyFields) => {
     return totalPence;
 }
 
+
 class ConvertedAmountFromPence {
     constructor(totalPence) {
         this.pounds = ~~(totalPence / 240);

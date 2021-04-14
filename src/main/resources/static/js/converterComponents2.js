@@ -9,7 +9,6 @@ const operands = {
     divide: 'Divide'
 }
 
-console.log(operands.add);
 
 for (let operand in operands) {
     console.log(operands[operand]);
