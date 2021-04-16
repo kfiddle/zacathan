@@ -95,6 +95,7 @@ async function loadSideBarPage() {
 
 
         function displaySpecificLectures(lectures) {
+            let numberOfHorizontalDivs = 0;
 
             while (mainStuff.lastChild) {
                 mainStuff.removeChild(mainStuff.lastChild);
@@ -102,10 +103,10 @@ async function loadSideBarPage() {
 
             setTimeout(() => {
 
-
             })
             for (let j = 0; j <= lectures.length; j = j + 3) {
-                let horizontalDiv = document.createElement('div');
+                let horizontalDiv = document.createElement('div')
+                numberOfHorizontalDivs++;
                 horizontalDiv.classList.add('horizontalDiv');
                 horizontalDiv.id = 'horizontalDiv' + j;
                 horizontalDiv.style.transition = (j / 6) + 0.5 + "s";
@@ -135,6 +136,8 @@ async function loadSideBarPage() {
                     }
                 }
                 mainStuff.appendChild(horizontalDiv);
+                console.log(numberOfHorizontalDivs);
+                mainStuff.style.height = ((numberOfHorizontalDivs - 1) * 14) + 'vh';
             }
             setTimeout(slideIn, 30);
         }
