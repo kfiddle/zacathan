@@ -1,42 +1,38 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;900&display=swap');
-*{
+
+* {
     box-sizing: border-box;
 }
 
 #converterDiv {
+    align-content: center;
     height: 100vh;
+    width: 100vw;
     transform: translateY(100vh);
-    background-color: rebeccapurple;
+    background-image: url("../images/backgroundImage.jpg");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
     transition: 2s;
 }
 
-.bgImage{
-    position: fixed;
-    z-index: -1;
-    min-width: 100%;
-    min-height: 100%;
-    background-image: url("../images/backgroundImage.jpg");
-    background-size: cover;
-    filter: sepia(1);
-}
 
 #converterHeader {
     height: 5vh;
 }
 
 
-a{
+a {
     text-decoration: none;
 }
 
-.container{
+.container {
     flex: 1.0;
     padding: 0rem 5rem;
 }
 
 
-
-h1{
+h1 {
     font-size: 2.5rem;
     font-weight: 900;
     text-align: center;
@@ -44,7 +40,7 @@ h1{
 }
 
 .accordion {
-    background-color: #000;
+    background-color: #5F5959;
     border: none;
     cursor: pointer;
     margin-bottom: 1rem;
@@ -58,7 +54,7 @@ h1{
     display: block;
 }
 
-.accordionLabel{
+.accordionLabel {
     color: #fdfaf6;
     font-size: 2.5rem;
     font-weight: 400;
@@ -66,7 +62,7 @@ h1{
 }
 
 .accordion:hover {
-    background-color: #704214;
+    background-color: #5D8391;
 }
 
 
@@ -79,7 +75,7 @@ h1{
     padding: 2rem;
 }
 
-.currencyTypes{
+.currencyTypes {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
 }
@@ -96,19 +92,19 @@ input {
 }
 
 
-.lineTwo{
+.lineTwo {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
 }
 
-.function{
+.function {
     background-color: #000;
     border: 3px solid #000;
     color: #fdfaf6;
     cursor: pointer;
     font-size: 1rem;
     font-weight: 900;
-    margin: 1rem.25rem;
+    margin: 1rem .25rem;
     padding: .75rem;
     text-align: center;
     text-transform: uppercase;
@@ -116,14 +112,14 @@ input {
 }
 
 
-.solution{
+.solution {
     border: 3px solid #000;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    margin: 1rem.25rem;
+    margin: 1rem .25rem;
 }
 
-.answer{
+.answer {
     /*
     background-color: #fdfaf6;
     */
@@ -137,7 +133,7 @@ input {
     vertical-align: middle;
 }
 
-.answerLast{
+.answerLast {
     /*
     background-color: #fdfaf6;
     */
@@ -150,18 +146,18 @@ input {
     vertical-align: middle;
 }
 
-.multiplier{
+.multiplier {
     border: 3px solid #000;
     display: grid;
     grid-template-columns: 1fr 2fr;
     font-weight: 900;
-    margin: 1rem.25rem;
+    margin: 1rem .25rem;
     text-align: center;
     /*text-transform: uppercase;
     vertical-align: middle;*/
 }
 
-.operator{
+.operator {
     background-color: #000;
     color: #fdfaf6;
     font-size: 2rem;

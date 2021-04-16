@@ -2,6 +2,8 @@ const bars = document.getElementById("bars");
 const sideBarButtonDiv = document.getElementById("sideBarButtonDiv");
 const sideBar = document.getElementById("sideBar");
 const body = document.querySelector("body");
+let converterOpen = false;
+const header = document.querySelector('header');
 
 
 let sideBarWidth = sideBar.offsetWidth;
@@ -20,6 +22,7 @@ for (let j = 0; j < 3; j++) {
     bar.style.backgroundColor = "#1a1a1a"
     bar.style.transition = "0.3s";
     bar.style.top = (j * 8) + 3 + "px";
+
     bars.appendChild(bar);
     barsArray.push(bar);
 }
@@ -46,7 +49,9 @@ function resetBar(j, spinType) {
     } else if (spinType === "back") {
         barsArray[j].style.opacity = "1";
         barsArray[j].style.top = (j * 8) + 3 + "px";
-        barsArray[j].style.backgroundColor = "#1a1a1a";
+
+        converterOpen ? barsArray[j].style.backgroundColor = 'gold' :
+            barsArray[j].style.backgroundColor = "#1a1a1a";
     }
 }
 
@@ -71,23 +76,38 @@ function spinTheBars() {
 }
 
 function moveSideBar() {
+    let converterDiv = document.getElementById('converterDiv');
+
+    if (converterOpen) {
+        converterDiv.style.transform = 'translateY(100vh)';
+        header.style.backgroundColor = 'white';
+        body.style.backgroundColor = 'rgb(235, 245, 255)';
+
+        converterOpen = false;
+    }
+
     if (currentSideBarPosition === "open") {
         sideBar.style.transform = `translateX(-${sideBarWidth}px)`;
 
         while (mainStuff.lastChild) {
             mainStuff.removeChild(mainStuff.lastChild);
         }
+        body.style.backgroundColor = 'rgb(235, 245, 255)';
+
+
         currentSideBarPosition = "closed";
     } else if (currentSideBarPosition === "closed") {
         sideBar.style.transform = `translateX(-16px)`;
         currentSideBarPosition = "open";
     }
+
 }
 
-function contentDivsSlideIn() {
-    let slideRules = Array.from(document.querySelectorAll('.horizontalDiv'));
-
-    slideRules.forEach(slide => {
-        slide.style.transform = `translateX(-1vw)`;
+function glowingBars() {
+    let barsToBrighten = Array.from(bars.querySelectorAll('span'));
+    barsToBrighten.forEach(bar => {
+        bar.style.backgroundColor = 'gold';
     })
+
 }
+

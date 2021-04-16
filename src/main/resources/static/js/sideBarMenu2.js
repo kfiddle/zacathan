@@ -1,5 +1,4 @@
 const sideBarMenuItems = [];
-const header = document.querySelector('header');
 const headerH3Element = document.getElementById('title').querySelector('h3');
 const headerH5Element = document.getElementById('title').querySelector('h5');
 
@@ -35,21 +34,15 @@ async function loadSideBarPage() {
         menuItem.style.color = "rgb(0, 20, 230)";
     }
 
-    const changeToConverterHeading = () => {
-        header.style.color = 'white';
-        changeColor()
-
-        headerH3Element.innerText = COLONIALCONVERTER;
-        headerH5Element.innerText = '';
-    }
-
     const displayConverter = () => {
-        converterDiv.style.transform = 'translateY(-100vh)';
-        setTimeout(()=> {
-            header.style.backgroundColor = 'black';
-        }, 1000);
 
-        setTimeout( changeToConverterHeading, 1300);
+        converterDiv.style.transform = 'translateY(-100vh)';
+        moveSideBar();
+        glowingBars();
+        header.style.backgroundColor = "rgb(128, 128, 129)";
+        body.style.backgroundColor = "rgb(128, 128, 129)";
+        converterOpen = true;
+
     }
 
     fullShebang.forEach(series => {
@@ -78,9 +71,9 @@ async function loadSideBarPage() {
 
         menuItem.addEventListener('click', () => {
             let lecturesToDisplay = [];
+            body.style.backgroundColor = "rgb(128, 128, 129)";
 
             series.title === COLONIALCONVERTER ? displayConverter():
-            body.style.backgroundColor = "rgb(128, 128, 129)";
 
             series.lectures.forEach(lecture => {
                 lecturesToDisplay.push(lecture.title);
@@ -90,8 +83,6 @@ async function loadSideBarPage() {
 
 
         sideBar.appendChild(menuItem)
-
-
 
 
         function displaySpecificLectures(lectures) {
@@ -131,7 +122,6 @@ async function loadSideBarPage() {
                             cubicleTextDiv.style.color = "black";
                         })
 
-
                         horizontalDiv.appendChild(smallCubicle);
                     }
                 }
@@ -149,9 +139,6 @@ async function loadSideBarPage() {
                 slide.style.transform = `translateX(-1vw)`;
             })
         }
-
-
-
 
     })
 
