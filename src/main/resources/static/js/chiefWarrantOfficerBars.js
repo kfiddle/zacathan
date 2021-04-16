@@ -2,14 +2,16 @@ const bars = document.getElementById("bars");
 const sideBarButtonDiv = document.getElementById("sideBarButtonDiv");
 const sideBar = document.getElementById("sideBar");
 const body = document.querySelector("body");
-let converterOpen = false;
+const converterDiv = document.getElementById('converterDiv');
 const header = document.querySelector('header');
-
+const mainStuff = document.getElementById("theRealContent");
+const navElement = document.getElementById('navElement');
 
 let sideBarWidth = sideBar.offsetWidth;
 let barsArray = [];
 
-let currentSideBarPosition = "closed";
+let converterOpen = false;
+let sideBarOpen = false;
 let barsSpun = false;
 
 for (let j = 0; j < 3; j++) {
@@ -75,33 +77,41 @@ function spinTheBars() {
     }
 }
 
+const displayConverter = () => {
+
+    converterDiv.style.transform = 'translateY(-100vh)';
+    moveSideBar();
+    glowingBars();
+    navElement.innerText = 'BACK';
+    header.style.backgroundColor = "rgb(128, 128, 129)";
+    body.style.backgroundColor = "rgb(128, 128, 129)";
+    converterOpen = true;
+
+}
+
 function moveSideBar() {
     let converterDiv = document.getElementById('converterDiv');
-
     if (converterOpen) {
         converterDiv.style.transform = 'translateY(100vh)';
         header.style.backgroundColor = 'white';
-        body.style.backgroundColor = 'rgb(235, 245, 255)';
-
+        navElement.innerText = '';
         converterOpen = false;
     }
 
-    if (currentSideBarPosition === "open") {
+    if (sideBarOpen) {
         sideBar.style.transform = `translateX(-${sideBarWidth}px)`;
 
         while (mainStuff.lastChild) {
             mainStuff.removeChild(mainStuff.lastChild);
         }
-        body.style.backgroundColor = 'rgb(235, 245, 255)';
-
-
-        currentSideBarPosition = "closed";
-    } else if (currentSideBarPosition === "closed") {
+        sideBarOpen = false;
+    } else if (!sideBarOpen) {
         sideBar.style.transform = `translateX(-16px)`;
-        currentSideBarPosition = "open";
+        sideBarOpen = true;
     }
-
+    body.style.backgroundColor = 'rgb(235, 245, 255)';
 }
+
 
 function glowingBars() {
     let barsToBrighten = Array.from(bars.querySelectorAll('span'));

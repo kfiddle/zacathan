@@ -2,9 +2,8 @@ const sideBarMenuItems = [];
 const headerH3Element = document.getElementById('title').querySelector('h3');
 const headerH5Element = document.getElementById('title').querySelector('h5');
 
-const mainStuff = document.getElementById("theRealContent");
 const mainWidth = mainStuff.offsetWidth;
-const converterDiv = document.getElementById('converterDiv');
+// const converterDiv = document.getElementById('converterDiv');
 
 const COLONIALCONVERTER = 'Colonial Currency Converter';
 
@@ -34,16 +33,7 @@ async function loadSideBarPage() {
         menuItem.style.color = "rgb(0, 20, 230)";
     }
 
-    const displayConverter = () => {
 
-        converterDiv.style.transform = 'translateY(-100vh)';
-        moveSideBar();
-        glowingBars();
-        header.style.backgroundColor = "rgb(128, 128, 129)";
-        body.style.backgroundColor = "rgb(128, 128, 129)";
-        converterOpen = true;
-
-    }
 
     fullShebang.forEach(series => {
         let menuItem = document.createElement('h3');
