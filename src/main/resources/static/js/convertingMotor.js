@@ -66,9 +66,9 @@ const calculate = (operand) => {
 
     let finalAnswer = new ConvertedAmountFromPence(totalPences);
 
-    showPoundsElem.innerText = finalAnswer.pounds + '  ' + 'pounds';
-    showShillingsElem.innerText = finalAnswer.shillings + '  ' + 'shillings';
-    showPenceElem.innerText = finalAnswer.pence + '  ' + 'pence';
+    showPoundsElem.innerHTML = finalAnswer.pounds + "<br>" + 'pounds';
+    showShillingsElem.innerHTML = finalAnswer.shillings + "<br>"+ 'shillings';
+    showPenceElem.innerHTML = finalAnswer.pence + "<br>" + 'pence';
 
 }
 

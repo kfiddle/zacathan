@@ -38,7 +38,7 @@ const calculate = (operand) => {
     let showShillingsElem = document.getElementById('shillings');
     let showPenceElem = document.getElementById('pence');
 
-    showPoundsElem.innerText = finalAmount.pounds + '  ' + 'pounds';
-    showShillingsElem.innerText = finalAmount.shillings + '  ' + 'shillings';
-    showPenceElem.innerText = finalAmount.pence + '  ' + 'pence';
+    showPoundsElem.innerHTML = finalAmount.pounds + "<br>" + 'pounds';
+    showShillingsElem.innerHTML = finalAmount.shillings + "<br>"+ 'shillings';
+    showPenceElem.innerHTML = finalAmount.pence + "<br>" + 'pence';
 }
