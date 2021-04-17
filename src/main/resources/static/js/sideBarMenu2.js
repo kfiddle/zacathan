@@ -1,23 +1,32 @@
 const sideBarMenuItems = [];
-const headerH3Element = document.getElementById('title').querySelector('h3');
-const headerH5Element = document.getElementById('title').querySelector('h5');
-
+document.getElementById('title').querySelector('h3');
+document.getElementById('title').querySelector('h5');
 const mainWidth = mainStuff.offsetWidth;
-// const converterDiv = document.getElementById('converterDiv');
 
-const COLONIALCONVERTER = 'Colonial Currency Converter';
 
+
+
+
+
+
+    const COLONIALCONVERTER = 'Colonial Currency Converter';
+const ABOUTME = 'About Me';
 
 async function loadSideBarPage() {
 
     const seriesData = await fetch("/api/lecture-series-list");
     const fullShebang = await seriesData.json();
 
-    let newAddition = {
+    let converterAddition = {
         title: COLONIALCONVERTER
     };
 
-    fullShebang.push(newAddition);
+    let aboutMeAddition = {
+        title: ABOUTME
+    }
+
+    fullShebang.push(converterAddition);
+    fullShebang.unshift(aboutMeAddition);
 
     function changeColor(menuItem, index) {
         if (index < menuItem.innerHTML.length + 1) {
@@ -63,12 +72,16 @@ async function loadSideBarPage() {
             let lecturesToDisplay = [];
             body.style.backgroundColor = "rgb(128, 128, 129)";
 
-            series.title === COLONIALCONVERTER ? displayConverter():
-
-            series.lectures.forEach(lecture => {
-                lecturesToDisplay.push(lecture.title);
-            })
-            displaySpecificLectures(lecturesToDisplay);
+            if (series.title === ABOUTME){
+                showAboutMe();
+            } else if (series.title === COLONIALCONVERTER) {
+                displayConverter()
+            } else {
+                series.lectures.forEach(lecture => {
+                    lecturesToDisplay.push(lecture.title);
+                })
+                displaySpecificLectures(lecturesToDisplay);
+            }
         })
 
 

@@ -13,4 +13,9 @@ public class Navigator {
         return "home";
     }
 
+
+    @RequestMapping("/angel")
+    public String displayAngelTestingPage() {
+        return "angel";
+    }
 }

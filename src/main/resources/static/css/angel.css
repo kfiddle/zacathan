@@ -1,0 +1,23 @@
+#croppedCenterLady {
+    position: absolute;
+    top: 33vh;
+    left: 45vw;
+    width: 19%;
+    z-index: 1;
+    transition: 3s;
+}
+
+#blurryBackground {
+    position: absolute;
+    width: 100vw;
+    z-index: 0;
+    transition: 3s;
+}
+
+#hitMeButton {
+    position: absolute;
+    right: 10vw;
+    height: 10vh;
+    width: 10vw;
+    background-color: rebeccapurple;
+}
