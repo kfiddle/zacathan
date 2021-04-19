@@ -7,14 +7,7 @@ const mainStuff = document.getElementById("theRealContent");
 const navElement = document.getElementById('navElement');
 const aboutMeDiv = document.getElementById('aboutMeDiv');
 
-
-
-
-
-
-
-
-    let sideBarWidth = sideBar.offsetWidth;
+let sideBarWidth = sideBar.offsetWidth;
 let barsArray = [];
 
 let converterOpen = false;
@@ -50,6 +43,27 @@ sideBarButtonDiv.addEventListener('click', () => {
 })
 
 
+const goldBar = index => {
+
+    let barsToTwinkle = Array.from(bars.querySelectorAll('span'));
+    barsToTwinkle.forEach(bar => bar.style.backgroundColor = 'black');
+
+    barsToTwinkle[index].style.backgroundColor = 'gold';
+}
+
+const twinkle = times => {
+    for (let h = 1; h < times; h = h + 3) {
+        for (let j = 0; j < 3; j++) {
+            setTimeout(goldBar, (h + j) * 300, j);
+        }
+
+    }
+
+}
+
+// setTimeout(twinkle, 1000, 20);
+
+
 function resetBar(j, spinType) {
     if (spinType === "up") {
         barsArray[j].style.opacity = "0.5";
@@ -59,7 +73,7 @@ function resetBar(j, spinType) {
         barsArray[j].style.opacity = "1";
         barsArray[j].style.top = (j * 8) + 3 + "px";
 
-        converterOpen ? barsArray[j].style.backgroundColor = 'gold' :
+        converterOpen ? barsArray[ j].style.backgroundColor = 'gold' :
             barsArray[j].style.backgroundColor = "#1a1a1a";
     }
 }
