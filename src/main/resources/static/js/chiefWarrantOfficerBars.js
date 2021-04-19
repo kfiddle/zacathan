@@ -3,15 +3,9 @@ const sideBarButtonDiv = document.getElementById("sideBarButtonDiv");
 const sideBar = document.getElementById("sideBar");
 const body = document.querySelector("body");
 const converterDiv = document.getElementById('converterDiv');
-const header = document.querySelector('header');
 const mainStuff = document.getElementById("theRealContent");
 const navElement = document.getElementById('navElement');
 const aboutMeDiv = document.getElementById('aboutMeDiv');
-
-
-aboutMeDiv.innerHTML = 'Susan Goss Johnston is a 2011 ProGen alumna, has completed the Advanced Methodology and Evidence Analysis course at the Institute of Genealogy and Historical Research and the National Archives lecture and lab course, Going to the Source, and has attended the National Institute on Genealogical Research. She is a co-editor of the recently published Source Templates for The Master Genealogist (available on Lulu.com). Her personal research focuses on families in New England and the Mid-Atlantic region, and she specializes in military records. A former Maryland resident, she now lives in California, and continues teaching intermediate and advanced genealogy courses there and is a frequent speaker at local meetings and conferences.' +
-
-    'All lectures are PowerPoint presentations that include real-life examples and case studies, all include handouts, and seminar presentations include optional workshops.';
 
 
 

@@ -11,7 +11,6 @@ const operands = {
 
 
 for (let operand in operands) {
-    console.log(operands[operand]);
     createOuterOperandButtons(operands[operand]);
 }
 

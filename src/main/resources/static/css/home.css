@@ -1,6 +1,7 @@
 html {
     /*font-family: 'calibre-Bold', sans-serif;*/
     font-family: 'Calibre-Bold', "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", "Meiryo", Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+
 }
 
 span {
@@ -22,9 +23,10 @@ header {
     top: 0;
     background-color: white;
     position: fixed;
+    transform: translateY(-10vh);
     z-index: 1;
     box-shadow: 1px 1px lightgray;
-    transition: 1.5s;
+    transition: 3s;
 }
 
 #title {
