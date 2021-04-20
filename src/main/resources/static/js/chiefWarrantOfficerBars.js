@@ -99,7 +99,7 @@ function spinTheBars() {
 
 const displayConverter = () => {
 
-    converterDiv.style.transform = 'translateY(-102vh)';
+    converterDiv.style.transform = 'translateY(-98vh)';
     moveSideBar();
     glowingBars();
     navElement.innerText = 'BACK';

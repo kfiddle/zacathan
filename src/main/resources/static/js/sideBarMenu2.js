@@ -25,19 +25,6 @@ async function loadSideBarPage() {
     fullShebang.push(converterAddition);
     fullShebang.unshift(aboutMeAddition);
 
-    function changeColor(menuItem, index) {
-        if (index < menuItem.innerHTML.length + 1) {
-            let originalString = menuItem.innerText;
-            setTimeout(oneLetterAtATime, index * 10, menuItem, originalString, index);
-            index++;
-            changeColor(menuItem, index);
-        }
-    }
-
-    function oneLetterAtATime(menuItem, originalString, index) {
-        menuItem.innerText = originalString.substr(0, index);
-        menuItem.style.color = "rgb(0, 20, 230)";
-    }
 
 
     fullShebang.forEach(series => {
@@ -54,7 +41,21 @@ async function loadSideBarPage() {
             for (let title of sideBar.childNodes) {
                 title.style.color = "black";
             }
-            changeColor(menuItem, index);
+            let indexForColoring = 1;
+
+            function oneLetter() {
+                function changeALetter(timestamp) {
+                        if (indexForColoring < series.title.length + 1) {
+                            menuItem.innerText = series.title.substr(0, indexForColoring);
+                            menuItem.style.color = "rgb(0, 20, 230)";
+                            indexForColoring++;
+                        }
+                        requestAnimationFrame(oneLetter);
+                }
+                requestAnimationFrame(changeALetter);
+            }
+
+            oneLetter();
         });
 
         menuItem.addEventListener('mouseout', () => {

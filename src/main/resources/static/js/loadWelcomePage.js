@@ -11,6 +11,9 @@ const ladyChange = () => {
     body.style.backgroundColor =  'rgb(235, 245, 255)';
 }
 
-window.addEventListener('mousemove', ladyChange);
 
+function openWindowListener() {
+    window.addEventListener('mousemove', ladyChange, {once: true});
+}
 
+openWindowListener();
