@@ -4,12 +4,7 @@ document.getElementById('title').querySelector('h5');
 const mainWidth = mainStuff.offsetWidth;
 
 
-
-
-
-
-
-    const COLONIALCONVERTER = 'Colonial Currency Converter';
+const COLONIALCONVERTER = 'Colonial Currency Converter';
 const ABOUTME = 'About Me';
 
 async function loadSideBarPage() {
@@ -147,8 +142,8 @@ async function loadSideBarPage() {
 
 }
 
-
 loadSideBarPage();
+
 
 
 

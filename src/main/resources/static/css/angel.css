@@ -17,7 +17,9 @@
 
 #modestAngel {
     position: absolute;
-    width: 100vw;
+    top: 0;
+    left: 7vw;
+    width: 80vw;
     z-index: 0;
     transition: 3s;
 

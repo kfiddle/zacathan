@@ -1,7 +1,6 @@
 const bars = document.getElementById("bars");
 const sideBarButtonDiv = document.getElementById("sideBarButtonDiv");
 const sideBar = document.getElementById("sideBar");
-const body = document.querySelector("body");
 const converterDiv = document.getElementById('converterDiv');
 const mainStuff = document.getElementById("theRealContent");
 const navElement = document.getElementById('navElement');
@@ -73,7 +72,7 @@ function resetBar(j, spinType) {
         barsArray[j].style.opacity = "1";
         barsArray[j].style.top = (j * 8) + 3 + "px";
 
-        converterOpen ? barsArray[ j].style.backgroundColor = 'gold' :
+        converterOpen ? barsArray[j].style.backgroundColor = 'gold' :
             barsArray[j].style.backgroundColor = "#1a1a1a";
     }
 }
@@ -106,7 +105,7 @@ const showAboutMe = () => {
 
 const displayConverter = () => {
 
-    converterDiv.style.transform = 'translateY(-100vh)';
+    converterDiv.style.transform = 'translateY(-102vh)';
     moveSideBar();
     glowingBars();
     navElement.innerText = 'BACK';
@@ -145,6 +144,15 @@ function glowingBars() {
     barsToBrighten.forEach(bar => {
         bar.style.backgroundColor = 'gold';
     })
-
 }
+
+function openWindowListener() {
+    window.addEventListener('mousemove', () => {
+        setTimeout(() => {
+            moveSideBar();
+        }, 2000);
+    }, {once: true});
+}
+
+openWindowListener();
 
