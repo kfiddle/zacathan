@@ -124,31 +124,53 @@ async function loadSideBarPage() {
                 console.log(numberOfHorizontalDivs);
                 mainStuff.style.height = ((numberOfHorizontalDivs - 1) * 14) + 'vh';
             }
-            setTimeout(slideIn, 30);
+            setTimeout(slideIn, 30, 'horizontalDiv', '-1vw');
+
+        }
+
+        function renderAboutMeDiv() {
+            let aboutMeDiv = document.createElement('div');
+            aboutMeDiv.classList.add('aboutMeDiv');
+            renderAboutMeText(aboutMeDiv);
+            return aboutMeDiv;
         }
 
         function showAboutMe() {
             while (mainStuff.lastChild) {
                 mainStuff.removeChild(mainStuff.lastChild);
             }
-
-            let aboutMeDiv = document.createElement('div')
-            aboutMeDiv.classList.add('aboutMeDiv');
-            aboutMeDiv.innerText = 'hello lama';
+            let aboutMeDiv = renderAboutMeDiv();
             mainStuff.appendChild(aboutMeDiv);
-            aboutMeDiv.style.transform = 'translateX(-1vw)';
+            setTimeout(slideIn, 30, 'aboutMeDiv', '20vw');
         }
 
-        function slideIn() {
-            let slideRules = Array.from(document.querySelectorAll('.horizontalDiv'));
-
+        function slideIn(className, slideVW) {
+            let slideRules = Array.from(document.querySelectorAll('.' + className));
             slideRules.forEach(slide => {
-                slide.style.transform = `translateX(-1vw)`;
+                slide.style.transform = `translateX(${slideVW})`;
             })
         }
 
+        function renderAboutMeText(aboutMeElement) {
+            aboutMeElement.innerHTML = `
+            
+            <p class="aboutMeText">Susan Goss Johnston is a 2011 ProGen alumna, has completed the Advanced Methodology and Evidence Analysis course at
+             the Institute of Genealogy and Historical Research and the National Archives' lecture and lab course, 
+             Going to the Source, and has attended the National Institute on Genealogical Research. 
+             She is a co-editor of the recently published Source Templates for The Master Genealogist (available on Lulu.com). 
+             Her personal research focuses on families in New England and the Mid-Atlantic region, 
+             and she specializes in military records. A former Maryland resident, she now lives in California, 
+             and continues teaching intermediate and advanced genealogy courses there and is a frequent speaker at local 
+             meetings and conferences.
+
+            All lectures are PowerPoint presentations that include real-life examples and case studies, all include handouts, 
+            and seminar presentations include optional workshops.</p>     
+            `
+        }
 
     })
+
+
 
 }
 
