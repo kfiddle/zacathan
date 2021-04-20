@@ -130,6 +130,14 @@ main {
     transform: translateX(100vw);
 }
 
+.aboutMeDiv {
+    width: 60vw;
+    height: 80vh;
+    background-color: red;
+    transform: translateX(100vw);
+    transition: 2s;
+}
+
 
 
 

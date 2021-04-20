@@ -90,9 +90,6 @@ async function loadSideBarPage() {
                 mainStuff.removeChild(mainStuff.lastChild);
             }
 
-            setTimeout(() => {
-
-            })
             for (let j = 0; j <= lectures.length; j = j + 3) {
                 let horizontalDiv = document.createElement('div')
                 numberOfHorizontalDivs++;
@@ -130,6 +127,18 @@ async function loadSideBarPage() {
             setTimeout(slideIn, 30);
         }
 
+        function showAboutMe() {
+            while (mainStuff.lastChild) {
+                mainStuff.removeChild(mainStuff.lastChild);
+            }
+
+            let aboutMeDiv = document.createElement('div')
+            aboutMeDiv.classList.add('aboutMeDiv');
+            aboutMeDiv.innerText = 'hello lama';
+            mainStuff.appendChild(aboutMeDiv);
+            aboutMeDiv.style.transform = 'translateX(-1vw)';
+        }
+
         function slideIn() {
             let slideRules = Array.from(document.querySelectorAll('.horizontalDiv'));
 
@@ -137,6 +146,7 @@ async function loadSideBarPage() {
                 slide.style.transform = `translateX(-1vw)`;
             })
         }
+
 
     })
 

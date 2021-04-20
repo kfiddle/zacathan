@@ -97,12 +97,6 @@ function spinTheBars() {
     }
 }
 
-const showAboutMe = () => {
-
-    aboutMeDiv.innerHTML = '/static/textFiles/aboutMe';
-}
-
-
 const displayConverter = () => {
 
     converterDiv.style.transform = 'translateY(-102vh)';
@@ -126,6 +120,7 @@ function moveSideBar() {
 
     if (sideBarOpen) {
         sideBar.style.transform = `translateX(-${sideBarWidth}px)`;
+        ladyInBackground.style.left = '10vw';
 
         while (mainStuff.lastChild) {
             mainStuff.removeChild(mainStuff.lastChild);
@@ -133,6 +128,7 @@ function moveSideBar() {
         sideBarOpen = false;
     } else if (!sideBarOpen) {
         sideBar.style.transform = `translateX(-16px)`;
+        ladyInBackground.style.left = '16vw';
         sideBarOpen = true;
     }
     body.style.backgroundColor = 'rgb(235, 245, 255)';
