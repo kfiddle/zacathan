@@ -9,8 +9,10 @@ const ABOUTME = 'About Me';
 
 async function loadSideBarPage() {
 
-    const seriesData = await fetch("/api/lecture-series-list");
-    const fullShebang = await seriesData.json();
+    const seriesData = await
+    fetch("/api/lecture-series-list");
+    const fullShebang = await
+    seriesData.json();
 
     let converterAddition = {
         title: COLONIALCONVERTER
@@ -36,7 +38,6 @@ async function loadSideBarPage() {
         menuItem.innerText = originalString.substr(0, index);
         menuItem.style.color = "rgb(0, 20, 230)";
     }
-
 
 
     fullShebang.forEach(series => {
@@ -67,7 +68,7 @@ async function loadSideBarPage() {
             let lecturesToDisplay = [];
             body.style.backgroundColor = "rgb(128, 128, 129)";
 
-            if (series.title === ABOUTME){
+            if (series.title === ABOUTME) {
                 showAboutMe();
             } else if (series.title === COLONIALCONVERTER) {
                 displayConverter()
@@ -141,7 +142,7 @@ async function loadSideBarPage() {
             }
             let aboutMeDiv = renderAboutMeDiv();
             mainStuff.appendChild(aboutMeDiv);
-            setTimeout(slideIn, 30, 'aboutMeDiv', '20vw');
+            setTimeout(slideIn, 30, 'aboutMeDiv', '4vw');
         }
 
         function slideIn(className, slideVW) {
@@ -154,7 +155,9 @@ async function loadSideBarPage() {
         function renderAboutMeText(aboutMeElement) {
             aboutMeElement.innerHTML = `
             
-            <p class="aboutMeText">Susan Goss Johnston is a 2011 ProGen alumna, has completed the Advanced Methodology and Evidence Analysis course at
+            <img id="portrait" src="/images/zacathanPortrait.jpg" alt="">
+            <div id = "bioContainer">
+            <p class="leastHeaderishText bioText" >Susan Goss Johnston is a 2011 ProGen alumna, has completed the Advanced Methodology and Evidence Analysis course at 
              the Institute of Genealogy and Historical Research and the National Archives' lecture and lab course, 
              Going to the Source, and has attended the National Institute on Genealogical Research. 
              She is a co-editor of the recently published Source Templates for The Master Genealogist (available on Lulu.com). 
@@ -164,14 +167,11 @@ async function loadSideBarPage() {
              meetings and conferences.
 
             All lectures are PowerPoint presentations that include real-life examples and case studies, all include handouts, 
-            and seminar presentations include optional workshops.</p>     
-            `
+            and seminar presentations include optional workshops.</p>  
+            </div>`
         }
 
     })
-
-
-
 }
 
 loadSideBarPage();
