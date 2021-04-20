@@ -120,7 +120,7 @@ function moveSideBar() {
 
     if (sideBarOpen) {
         sideBar.style.transform = `translateX(-${sideBarWidth}px)`;
-        ladyInBackground.style.left = '10vw';
+        ladyInBackground.style.left = '8vw';
 
         while (mainStuff.lastChild) {
             mainStuff.removeChild(mainStuff.lastChild);

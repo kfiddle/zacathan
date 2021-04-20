@@ -20,6 +20,11 @@
     top: 0;
     left: 7vw;
     width: 80vw;
+
+
+    /*box-shadow: 0 30px 40px rgba(0,0,0,.1);*/
+    /*border-radius: 25px;*/
+    border: 17px solid darkslategray;
     z-index: 0;
     transition: 3s;
 
