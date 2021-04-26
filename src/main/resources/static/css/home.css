@@ -77,7 +77,9 @@ main {
     width: 22vw;
     height: 100vh;
     transform: translateX(-25vw);
-    transition: .75s;
+    /*transition: .75s;*/
+    transition: .75s cubic-bezier(.4,0.0,.2,1.0);
+
 }
 
 #sideBarButtonDiv {
