@@ -41,28 +41,6 @@ sideBarButtonDiv.addEventListener('click', () => {
     spinTheBars();
 })
 
-
-const goldBar = index => {
-
-    let barsToTwinkle = Array.from(bars.querySelectorAll('span'));
-    barsToTwinkle.forEach(bar => bar.style.backgroundColor = 'black');
-
-    barsToTwinkle[index].style.backgroundColor = 'gold';
-}
-
-const twinkle = times => {
-    for (let h = 1; h < times; h = h + 3) {
-        for (let j = 0; j < 3; j++) {
-            setTimeout(goldBar, (h + j) * 300, j);
-        }
-
-    }
-
-}
-
-// setTimeout(twinkle, 1000, 20);
-
-
 function resetBar(j, spinType) {
     if (spinType === "up") {
         barsArray[j].style.opacity = "0.5";

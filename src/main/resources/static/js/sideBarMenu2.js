@@ -4,7 +4,7 @@ document.getElementById('title').querySelector('h5');
 const mainWidth = mainStuff.offsetWidth;
 
 
-const COLONIALCONVERTER = 'Colonial Currency Converter';
+const COLONIALCONVERTER = 'Colonial Currency Calculator';
 const ABOUTME = 'About Me';
 
 async function loadSideBarPage() {
